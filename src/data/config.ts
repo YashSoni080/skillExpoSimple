@@ -96,7 +96,7 @@ export const FEST_CONFIG: {
  * Critical instructions:
  * 1. eSports events -> https://forms.gle/Jha8mAqsN7FQfzzY9
  * 2. Open Mic events -> https://docs.google.com/forms/d/e/1FAIpQLSfFyu2UYaNy3aFkLIIkTmB8ZZzYvaDSQqijbk8ITSY1u2dX_w/viewform
- * 3. Everything else (Science, Tech, Content Creation, etc.) -> https://forms.gle/CbRLKiRXpGjkrQyX
+ * 3. Everything else (Science, Tech, Content Creation, etc.) -> https://forms.gle/CbRLKiRXpGjkrQyX7
  *
  * HOW TO OBTAIN AND UPDATE Google Forms 'entry.XXXXXXX' FIELD IDs:
  * -----------------------------------------------------------------
@@ -112,29 +112,26 @@ export const FEST_CONFIG: {
 export const REGISTRATION_FORMS = {
   esports: {
     baseUrl: "https://forms.gle/Jha8mAqsN7FQfzzY9",
-    // Full target form URL if direct viewform is used:
-    directUrl: "https://docs.google.com/forms/d/e/1FAIpQLScX_sample_esports/viewform",
-    // TODO: Replace with the actual Google Forms entry ID for "Event Name" from 'Get pre-filled link'
+    // Direct form URL for reliable prefilling
+    directUrl: "https://docs.google.com/forms/d/e/1FAIpQLScRVKA9T5JlVsW-ZZb4McQua3TGbJpUodxhPXNgYgpDXaIHSA/viewform",
     entryId: "entry.1847291032",
   },
   openMic: {
     baseUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfFyu2UYaNy3aFkLIIkTmB8ZZzYvaDSQqijbk8ITSY1u2dX_w/viewform",
     directUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfFyu2UYaNy3aFkLIIkTmB8ZZzYvaDSQqijbk8ITSY1u2dX_w/viewform",
-    // TODO: Replace with the actual Google Forms entry ID for "Performance Category / Event Name"
-    entryId: "entry.938174621",
+    entryId: "entry.1453776432",
   },
   general: {
-    baseUrl: "https://forms.gle/CbRLKiRXpGjkrQyX",
-    directUrl: "https://docs.google.com/forms/d/e/1FAIpQLSe_sample_general/viewform",
-    // TODO: Replace with the actual Google Forms entry ID for "Participating Event / Zone"
-    entryId: "entry.492019482",
+    baseUrl: "https://forms.gle/CbRLKiRXpGjkrQyX7",
+    directUrl: "https://docs.google.com/forms/d/e/1FAIpQLSc038yV6JL81aNaBlhWWjUaKAXM_ci70fhkvMt08VsxoNiYjQ/viewform",
+    entryId: "entry.2020945064",
   },
 };
 
 /**
  * Helper to build the registration URL with prefilled event name
  * Follows Google Forms standard prefill URL format:
- * ${baseUrl}?usp=pp_url&entry.XXXXXXX=${encodeURIComponent(eventTitle)}
+ * ${targetUrl}?usp=pp_url&entry.XXXXXXX=${encodeURIComponent(eventTitle)}
  */
 export function getRegistrationUrl(category: string, eventTitle: string): string {
   let formConfig = REGISTRATION_FORMS.general;
@@ -145,8 +142,10 @@ export function getRegistrationUrl(category: string, eventTitle: string): string
     formConfig = REGISTRATION_FORMS.openMic;
   }
 
+  // Use directUrl for prefilled parameters so Google Forms retains the prefilled values without dynamic-link redirects
+  const targetUrl = formConfig.directUrl || formConfig.baseUrl;
   const encodedTitle = encodeURIComponent(eventTitle);
-  const separator = formConfig.baseUrl.includes("?") ? "&" : "?";
+  const separator = targetUrl.includes("?") ? "&" : "?";
 
-  return `${formConfig.baseUrl}${separator}usp=pp_url&${formConfig.entryId}=${encodedTitle}`;
+  return `${targetUrl}${separator}usp=pp_url&${formConfig.entryId}=${encodedTitle}`;
 }

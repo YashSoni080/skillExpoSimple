@@ -15,7 +15,7 @@ import {
   Twitter,
   ArrowUp,
 } from "lucide-react";
-import { FEST_CONFIG } from "@/data/config";
+import { FEST_CONFIG, REGISTRATION_FORMS } from "@/data/config";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -139,7 +139,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs">
               <li>
                 <a
-                  href="https://forms.gle/Jha8mAqsN7FQfzzY9"
+                  href={REGISTRATION_FORMS.esports.baseUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-black transition-colors flex items-center gap-1.5"
@@ -150,7 +150,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSfFyu2UYaNy3aFkLIIkTmB8ZZzYvaDSQqijbk8ITSY1u2dX_w/viewform"
+                  href={REGISTRATION_FORMS.openMic.baseUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-black transition-colors flex items-center gap-1.5"
@@ -161,7 +161,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://forms.gle/CbRLKiRXpGjkrQyX"
+                  href={REGISTRATION_FORMS.general.baseUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-black transition-colors flex items-center gap-1.5"
