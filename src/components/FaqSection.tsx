@@ -75,14 +75,14 @@ export default function FaqSection() {
       </div>
 
       {/* Accordion List */}
-      <div className="space-y-3">
+      <div className="w-full space-y-3">
         {FAQS.map((faq, idx) => {
           const isOpen = openIndex === idx;
 
           return (
             <div
               key={faq.q}
-              className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+              className={`w-full rounded-2xl border transition-colors duration-150 overflow-hidden ${
                 isOpen
                   ? "bg-white border-gray-300 shadow-sm"
                   : "bg-white border-gray-200 hover:border-gray-300"
@@ -115,15 +115,22 @@ export default function FaqSection() {
               <AnimatePresence initial={false}>
                 {isOpen && (
                   <motion.div
+                    key="content"
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25, ease: "easeInOut" }}
-                    className="overflow-hidden"
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="w-full overflow-hidden"
                   >
-                    <div className="px-5 sm:px-6 pb-5 pt-1 border-t border-gray-100 text-xs sm:text-sm text-gray-600 leading-relaxed">
+                    <motion.div
+                      initial={{ y: -8 }}
+                      animate={{ y: 0 }}
+                      exit={{ y: -8 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                      className="w-full px-5 sm:px-6 pb-5 pt-1 border-t border-gray-100 text-xs sm:text-sm text-gray-600 leading-relaxed"
+                    >
                       {faq.a}
-                    </div>
+                    </motion.div>
                   </motion.div>
                 )}
               </AnimatePresence>
