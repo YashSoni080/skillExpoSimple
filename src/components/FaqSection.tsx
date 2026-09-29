@@ -57,110 +57,102 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-      {/* Section Header */}
-      <div className="text-center max-w-2xl mx-auto mb-12">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 border border-gray-200 text-gray-800 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
-          <HelpCircle className="w-3.5 h-3.5 text-gray-700" />
-          <span>Frequently Asked Questions</span>
+    <section className="relative w-full py-20 px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-4xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 border border-gray-200 text-gray-800 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
+            <HelpCircle className="w-3.5 h-3.5 text-gray-700" />
+            <span>Frequently Asked Questions</span>
+          </div>
+
+          <h2 className="font-display font-extrabold text-2xl sm:text-4xl text-gray-900 tracking-tight mb-3">
+            Everything You Need to Know
+          </h2>
+
+          <p className="text-xs sm:text-sm text-gray-600">
+            Got questions about participation, rules, accommodation, or certificates? Find quick answers below.
+          </p>
         </div>
 
-        <h2 className="font-display font-extrabold text-2xl sm:text-4xl text-gray-900 tracking-tight mb-3">
-          Everything You Need to Know
-        </h2>
+        {/* Accordion List */}
+        <div className="w-full space-y-3.5">
+          {FAQS.map((faq, idx) => {
+            const isOpen = openIndex === idx;
 
-        <p className="text-xs sm:text-sm text-gray-600">
-          Got questions about participation, rules, accommodation, or certificates? Find quick answers below.
-        </p>
-      </div>
-
-      {/* Accordion List */}
-      <div className="w-full space-y-3">
-        {FAQS.map((faq, idx) => {
-          const isOpen = openIndex === idx;
-
-          return (
-            <div
-              key={faq.q}
-              className={`w-full rounded-2xl border transition-colors duration-150 overflow-hidden ${
-                isOpen
-                  ? "bg-white border-gray-300 shadow-sm"
-                  : "bg-white border-gray-200 hover:border-gray-300"
-              }`}
-            >
-              <button
-                type="button"
-                onClick={() => toggle(idx)}
-                className="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-4 text-left transition-colors"
-                aria-expanded={isOpen}
+            return (
+              <div
+                key={faq.q}
+                className={`w-full rounded-2xl border transition-colors duration-200 overflow-hidden ${
+                  isOpen
+                    ? "bg-white border-gray-300 shadow-sm"
+                    : "bg-white border-gray-200 hover:border-gray-300"
+                }`}
               >
-                <div className="flex items-center gap-3">
-                  <span className="text-[11px] font-semibold text-gray-700 px-2 py-0.5 rounded-md bg-gray-100 border border-gray-200 hidden sm:inline-block">
-                    {faq.category}
-                  </span>
-                  <span className="font-display font-bold text-sm sm:text-base text-gray-900">
-                    {faq.q}
-                  </span>
-                </div>
+                <button
+                  type="button"
+                  onClick={() => toggle(idx)}
+                  className="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-4 text-left transition-colors"
+                  aria-expanded={isOpen}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-[11px] font-semibold text-gray-700 px-2 py-0.5 rounded-md bg-gray-100 border border-gray-200 hidden sm:inline-block">
+                      {faq.category}
+                    </span>
+                    <span className="font-display font-bold text-sm sm:text-base text-gray-900">
+                      {faq.q}
+                    </span>
+                  </div>
 
+                  <div
+                    className={`p-1.5 rounded-lg border border-gray-200 text-gray-500 shrink-0 transition-transform duration-200 ${
+                      isOpen ? "rotate-180 text-gray-900 border-gray-300 bg-gray-100" : ""
+                    }`}
+                  >
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                </button>
+
+                {/* Pure downward vertical slide using CSS Grid row expansion */}
                 <div
-                  className={`p-1.5 rounded-lg border border-gray-200 text-gray-500 shrink-0 transition-transform duration-200 ${
-                    isOpen ? "rotate-180 text-gray-900 border-gray-300 bg-gray-100" : ""
+                  className={`w-full grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                   }`}
                 >
-                  <ChevronDown className="w-4 h-4" />
-                </div>
-              </button>
-
-              <AnimatePresence initial={false}>
-                {isOpen && (
-                  <motion.div
-                    key="content"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25, ease: "easeOut" }}
-                    className="w-full overflow-hidden"
-                  >
-                    <motion.div
-                      initial={{ y: -8 }}
-                      animate={{ y: 0 }}
-                      exit={{ y: -8 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="w-full px-5 sm:px-6 pb-5 pt-1 border-t border-gray-100 text-xs sm:text-sm text-gray-600 leading-relaxed"
-                    >
+                  <div className="overflow-hidden w-full">
+                    <div className="w-full px-5 sm:px-6 pb-5 pt-1 border-t border-gray-100 text-xs sm:text-sm text-gray-600 leading-relaxed">
                       {faq.a}
-                    </motion.div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Still Have Questions Box */}
-      <div className="mt-10 p-5 rounded-2xl bg-gray-50 border border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm">
-        <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-xl bg-gray-100 text-gray-800 shrink-0 border border-gray-200">
-            <MessageSquare className="w-4 h-4" />
-          </div>
-          <div>
-            <h4 className="text-xs sm:text-sm font-bold text-gray-900">
-              Still have a specific query or team requirement?
-            </h4>
-            <p className="text-[11px] sm:text-xs text-gray-600">
-              Contact our student organizing desk directly at {FEST_CONFIG.contact.phone} or email {FEST_CONFIG.contact.email}
-            </p>
-          </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-        <a
-          href={`tel:${FEST_CONFIG.contact.phone}`}
-          className="shrink-0 px-4 py-2 rounded-xl bg-white hover:bg-gray-100 border border-gray-200 text-gray-800 text-xs font-semibold transition-colors shadow-sm"
-        >
-          Call Helpdesk
-        </a>
+        {/* Still Have Questions Box */}
+        <div className="w-full mt-10 p-5 rounded-2xl bg-gray-50 border border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-xl bg-gray-100 text-gray-800 shrink-0 border border-gray-200">
+              <MessageSquare className="w-4 h-4" />
+            </div>
+            <div>
+              <h4 className="text-xs sm:text-sm font-bold text-gray-900">
+                Still have a specific query or team requirement?
+              </h4>
+              <p className="text-[11px] sm:text-xs text-gray-600">
+                Contact our student organizing desk directly at {FEST_CONFIG.contact.phone} or email {FEST_CONFIG.contact.email}
+              </p>
+            </div>
+          </div>
+
+          <a
+            href={`tel:${FEST_CONFIG.contact.phone}`}
+            className="shrink-0 px-4 py-2 rounded-xl bg-white hover:bg-gray-100 border border-gray-200 text-gray-800 text-xs font-semibold transition-colors shadow-sm"
+          >
+            Call Helpdesk
+          </a>
+        </div>
       </div>
     </section>
   );
