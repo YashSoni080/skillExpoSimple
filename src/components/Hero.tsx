@@ -33,7 +33,7 @@ export default function Hero() {
           <span className="h-[1px] w-6 sm:w-12 bg-gradient-to-l from-transparent to-accent/60" />
         </motion.div>
 
-        {/* Large Sobhasaria Logo (Untouched, as it is, no background) */}
+        {/* Large Sobhasaria Logo with High Contrast Adjusted Typography */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -43,10 +43,10 @@ export default function Hero() {
           <Image
             src="/images/sobhasaria-hero-logo.png"
             alt="Sobhasaria Group of Institutions"
-            width={732}
-            height={272}
+            width={1945}
+            height={445}
             priority
-            className="w-72 sm:w-96 md:w-[480px] lg:w-[540px] max-w-full h-auto object-contain"
+            className="w-72 sm:w-96 md:w-[480px] lg:w-[560px] max-w-full h-auto object-contain filter drop-shadow-[0_0_20px_rgba(255,255,255,0.12)]"
           />
         </motion.div>
 

@@ -6,7 +6,7 @@ import { Trophy, Award, Gift, Sparkles, Star, ShieldCheck } from "lucide-react";
 const PRIZE_CARDS = [
   {
     title: "E-Sports Championship",
-    reward: "₹20,000+ Cash Pool + Expo Cup",
+    reward: "Exciting Prizes & Expo Cup Trophy",
     sub: "BGMI & Free Fire squad tournaments with champion trophies, runner-up awards, and gaming gear vouchers.",
     color: "#00E5FF",
     icon: Trophy,
@@ -14,7 +14,7 @@ const PRIZE_CARDS = [
   },
   {
     title: "Open Mic Grand Stage",
-    reward: "Cash Prizes for Top 3 + Golden Mic",
+    reward: "Exciting Prizes for Top 3 + Golden Mic",
     sub: "Recognizing outstanding poets, singers, stand-up comedians, and unique stage performers before guest judges.",
     color: "#B026FF",
     icon: Sparkles,
@@ -22,8 +22,8 @@ const PRIZE_CARDS = [
   },
   {
     title: "Startup & Innovation Incubation",
-    reward: "₹15,000+ Grants & Workspace",
-    sub: "Seed grant funding, investor networking, and complimentary incubation access at Sobhasaria EDC.",
+    reward: "Exciting Prizes, Grants & Workspace",
+    sub: "Incubation support, investor networking, and complimentary incubation access at Sobhasaria EDC.",
     color: "#FFB800",
     icon: Award,
     perks: ["Best Startup Pitch Trophy", "Incubation Cell Support", "Investor Mentorship"],

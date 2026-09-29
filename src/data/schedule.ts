@@ -144,7 +144,7 @@ export const SCHEDULE_EVENTS: ScheduleEvent[] = [
     category: "esports",
     categoryLabel: "E-Sports",
     venue: "Sobhasaria Arena (Grand Projector Stage)",
-    description: "Top 8 BGMI and Free Fire squads collide for the championship trophy and ₹20,000+ prize pool under live lights.",
+    description: "Top 8 BGMI and Free Fire squads collide for the championship trophy and exciting prizes under live lights.",
     iconName: "Trophy",
   },
   {
@@ -166,7 +166,7 @@ export const SCHEDULE_EVENTS: ScheduleEvent[] = [
     category: "brand",
     categoryLabel: "Valedictory",
     venue: "Main Auditorium",
-    description: "Felicitation of winners across all 9 zones, distribution of cash awards, Expo Cup trophies, and closing musical performance.",
+    description: "Felicitation of winners across all 9 zones, distribution of exciting prizes, Expo Cup trophies, and closing musical performance.",
     iconName: "Award",
   },
 ];

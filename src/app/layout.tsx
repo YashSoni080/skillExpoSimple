@@ -51,9 +51,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/images/sobhasaria-logo.png",
-    shortcut: "/images/sobhasaria-logo.png",
-    apple: "/images/sobhasaria-logo.png",
+    icon: "data:,",
   },
 };
 

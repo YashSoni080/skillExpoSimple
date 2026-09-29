@@ -26,7 +26,7 @@ const ZONES = [
     icon: Gamepad2,
     color: "#00E5FF",
     days: "Day 1 & 2",
-    badge: "₹20,000+ Pool",
+    badge: "Exciting Prizes",
   },
   {
     id: "tech",
