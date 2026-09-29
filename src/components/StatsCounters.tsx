@@ -65,12 +65,18 @@ export default function StatsCounters() {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="flex flex-col items-center text-center p-4 rounded-xl border border-white/5 hover:border-accent/30 transition-colors bg-white/[0.02]"
             >
-              <div className="text-glow mb-1">
-                <Counter
-                  value={stat.value}
-                  prefix={stat.prefix}
-                  suffix={stat.suffix}
-                />
+              <div className="text-glow mb-1 min-h-[44px] flex items-center justify-center">
+                {stat.value !== undefined ? (
+                  <Counter
+                    value={stat.value}
+                    prefix={stat.prefix}
+                    suffix={stat.suffix}
+                  />
+                ) : (
+                  <span className="font-display font-black text-2xl sm:text-3xl text-white text-center leading-tight">
+                    {stat.displayText}
+                  </span>
+                )}
               </div>
               <span className="text-sm font-semibold text-accent tracking-wide mb-1">
                 {stat.label}

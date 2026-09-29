@@ -90,7 +90,8 @@ export interface GalleryMedia {
 }
 
 export interface StatItem {
-  value: number;
+  value?: number;
+  displayText?: string;
   suffix?: string;
   prefix?: string;
   label: string;

@@ -40,14 +40,14 @@ export const FEST_CONFIG = {
   stats: [
     { value: 9, suffix: "+", label: "Live Interactive Zones", description: "From Esports to AI & Startups" },
     { value: 30, suffix: "+", label: "Competitions & Showcases", description: "Across Tech, Art, Science & Media" },
-    { value: 2500, suffix: "+", label: "Expected Attendees", description: "Students, creators & innovators" },
-    { value: 100000, prefix: "₹", suffix: "+", label: "Prizes & Recognition", description: "Cash prizes, trophies & certificates" },
+    { displayText: "Cool Rewards", label: "Best Exciting Prizes", description: "Exciting prizes for winners in each zone" },
+    { displayText: "Trophies & Badges", label: "Certificates For All", description: "Expo Cup trophies & official merit certificates" },
   ],
 
   contact: {
-    email: "skillexpo@sobhasaria.edu.in",
-    phone: "+91 1572 222 655",
-    altPhone: "+91 94140 33888",
+    email: "skillexpo@secs.ac.in",
+    phone: "6376974216",
+    altPhone: "+91 63769 74216",
     venue: "Sobhasaria Campus Arena & Auditoriums, Sikar (Raj.)",
   },
 

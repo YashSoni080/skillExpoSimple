@@ -33,7 +33,7 @@ export default function Hero() {
           <span className="h-[1px] w-6 sm:w-12 bg-gradient-to-l from-transparent to-accent/60" />
         </motion.div>
 
-        {/* Large Sobhasaria Logo (No background, increased size) */}
+        {/* Large Sobhasaria Logo (Untouched, as it is, no background) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -41,12 +41,12 @@ export default function Hero() {
           className="relative mb-6 flex items-center justify-center px-4"
         >
           <Image
-            src="/images/sobhasaria-logo-transparent.png"
+            src="/images/sobhasaria-hero-logo.png"
             alt="Sobhasaria Group of Institutions"
-            width={688}
-            height={153}
+            width={732}
+            height={272}
             priority
-            className="w-72 sm:w-96 md:w-[480px] lg:w-[560px] max-w-full h-auto object-contain filter drop-shadow-[0_0_30px_rgba(0,229,255,0.25)]"
+            className="w-72 sm:w-96 md:w-[480px] lg:w-[540px] max-w-full h-auto object-contain"
           />
         </motion.div>
 
@@ -69,7 +69,7 @@ export default function Hero() {
           </p>
 
           <p className="text-xs sm:text-sm text-gray-400 max-w-2xl mx-auto mb-6">
-            The grand inter-college arena bringing together over 2,500+ student innovators,
+            The grand inter-college arena bringing together student innovators,
             eSports champions, digital creators, spoken word artists, and tech builders.
           </p>
         </motion.div>
@@ -93,7 +93,7 @@ export default function Hero() {
 
           <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-surface/60 border border-accent/25 text-accent backdrop-blur-sm">
             <Trophy className="w-4 h-4 text-neon-gold" />
-            <span className="font-semibold">₹1,00,000+ Prize Pool</span>
+            <span className="font-semibold">Exciting Prizes, Trophies & Rewards</span>
           </div>
         </motion.div>
 

@@ -72,8 +72,8 @@ export default function PrizeHighlights() {
           transition={{ delay: 0.2 }}
           className="text-gray-300 text-sm sm:text-base leading-relaxed"
         >
-          Skill Expo Phase 3.0 offers a mega pool exceeding <strong className="text-white">₹1,00,000+</strong> in cash
-          rewards, prestigious Expo Cup trophies, merit shields, gift hampers, and incubation grants.
+          Skill Expo Phase 3.0 offers the best exciting prizes, official certificates,
+          prestigious Expo Cup trophies, and cool rewards across all live competitive zones.
         </motion.p>
       </div>
 

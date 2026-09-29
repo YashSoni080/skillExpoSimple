@@ -25,12 +25,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Skill Expo Phase 3.0 | Sobhasaria Group of Institutions",
     description:
-      "Explore • Learn • Innovate | 9 Live Zones, ₹1,00,000+ Prize Pool, 23-24 October 2026 at Sobhasaria Campus, Sikar.",
+      "Explore • Learn • Innovate | 9 Live Zones, Exciting Prizes, Trophies & Certificates, 23-24 October 2026 at Sobhasaria Campus, Sikar.",
     url: "https://skillexpo.sobhasaria.edu.in",
     siteName: "Skill Expo 3.0",
     images: [
       {
-        url: "/images/sobhasaria-logo.png",
+        url: "/images/sobhasaria-hero-logo.png",
         width: 1200,
         height: 630,
         alt: "Skill Expo Phase 3.0 - Sobhasaria Group of Institutions",
@@ -43,8 +43,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Skill Expo Phase 3.0 | Sobhasaria Sikar",
     description:
-      "Join Rajasthan's largest inter-college talent symposium. 9 Live Zones, E-Sports Arena, Open Mic & ₹1,00,000+ in prizes.",
-    images: ["/images/sobhasaria-logo.png"],
+      "Join Rajasthan's largest inter-college talent symposium. 9 Live Zones, E-Sports Arena, Open Mic, Exciting Prizes & Cool Rewards.",
+    images: ["/images/sobhasaria-hero-logo.png"],
   },
   robots: {
     index: true,
@@ -64,6 +64,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        />
+      </head>
       <body className="min-h-screen bg-background text-foreground antialiased font-sans selection:bg-accent selection:text-background relative">
         {/* Custom Glowing Cursor for Desktop */}
         <CustomCursor />
