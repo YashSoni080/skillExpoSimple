@@ -298,7 +298,7 @@ export const EVENTS: EventItem[] = [
     prizes: {
       first: "Exciting Prizes + Eco-Innovator Trophy",
       second: "Exciting Prizes + Green Kit",
-      description: "Exciting prizes + college implementation pilot sponsorship",
+      description: "Exciting prizes + college implementation pilot support",
     },
     rules: [
       "Focus on verifiable ecological impact and low carbon footprint.",
@@ -363,7 +363,7 @@ export const EVENTS: EventItem[] = [
       "A power-packed hub for digital storytellers, YouTubers, podcasters, visual designers, and vloggers to collaborate, network, and master growth hacks.",
     highlights: [
       "Live Reels & Podcast recording jam station with studio gear",
-      "Masterclass on monetization, viral hooks, and brand sponsorships",
+      "Masterclass on monetization, viral hooks, and digital brand growth",
       "Portfolio review & feedback from verified regional creators",
       "Creator collaboration lounge for cross-channel content shoots",
     ],
@@ -590,9 +590,9 @@ export const EVENTS: EventItem[] = [
     time: "09:00 AM – 03:00 PM",
     venue: "Main Plaza & Brand Arena",
     teamSize: "Corporate / Brand Teams",
-    entryFee: "Exhibition Stall Partnership",
+    entryFee: "Exhibition Stall Registration",
     prizes: {
-      description: "Best Brand Engagement Award & Campus Partner Mementos",
+      description: "Best Brand Engagement Award & Campus Mementos",
     },
     rules: [
       "Exhibitors must set up displays prior to 8:30 AM on Day 1.",

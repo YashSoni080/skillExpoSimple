@@ -98,7 +98,7 @@ export const SCHEDULE_EVENTS: ScheduleEvent[] = [
     category: "brand",
     categoryLabel: "Brand Connect",
     venue: "Main Plaza & Brand Arena",
-    description: "Partner corporate stalls, startup displays, brand sampling, and interactive visitor engagement booths.",
+    description: "Corporate stalls, startup displays, brand sampling, and interactive visitor engagement booths.",
     iconName: "Briefcase",
   },
 

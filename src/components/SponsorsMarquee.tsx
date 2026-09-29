@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, FileText, ExternalLink, Shield } from "lucide-react";
+import { Download, FileText, ExternalLink, Plus } from "lucide-react";
 import { SPONSORS } from "@/data/sponsors";
 import { FEST_CONFIG } from "@/data/config";
 
@@ -22,7 +22,7 @@ export default function SponsorsMarquee() {
       </div>
 
       {/* Infinite Marquee Track */}
-      <div className="relative w-full overflow-hidden py-4 border-y border-white/10 bg-surface/50 backdrop-blur-sm">
+      <div className="relative w-full overflow-hidden py-6 border-y border-white/10 bg-surface/50 backdrop-blur-sm">
         {/* Fade gradient overlays on edges */}
         <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-[#06060c] to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-[#06060c] to-transparent z-10 pointer-events-none" />
@@ -31,18 +31,10 @@ export default function SponsorsMarquee() {
           {marqueeItems.map((sponsor, index) => (
             <div
               key={`${sponsor.id}-${index}`}
-              className="flex items-center gap-3 mx-4 px-6 py-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-accent/50 transition-colors group cursor-pointer"
+              className="flex items-center justify-center mx-4 w-44 sm:w-56 h-16 rounded-2xl bg-white/[0.02] border border-dashed border-white/15 hover:border-accent/40 hover:bg-white/[0.04] transition-all duration-300 group cursor-default"
             >
-              <div className="w-8 h-8 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
-                <Shield className="w-4 h-4" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-semibold text-white group-hover:text-accent transition-colors whitespace-nowrap">
-                  {sponsor.name}
-                </span>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-gray-400">
-                  {sponsor.tier}
-                </span>
+              <div className="w-8 h-8 rounded-xl border border-dashed border-white/20 flex items-center justify-center text-gray-500 group-hover:text-accent group-hover:border-accent/40 transition-colors">
+                <Plus className="w-4 h-4" />
               </div>
             </div>
           ))}
