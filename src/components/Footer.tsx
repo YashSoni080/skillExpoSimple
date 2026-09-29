@@ -31,16 +31,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
           {/* Column 1: College Info & Branding */}
           <div className="lg:col-span-2 flex flex-col items-start">
-            <Link href="/" className="flex items-center gap-2.5 mb-4 group">
-              <div className="w-10 h-10 rounded-xl bg-accent/15 border border-accent/30 flex items-center justify-center text-accent group-hover:scale-105 transition-transform shadow-[0_0_15px_rgba(0,229,255,0.2)]">
-                <span className="font-display font-black text-sm text-accent">S3</span>
-              </div>
-              <div>
-                <span className="font-display font-black text-lg text-white block group-hover:text-accent transition-colors">
-                  SKILL EXPO 3.0
+            <Link href="/" className="flex items-center gap-2 mb-4 group">
+              <div className="flex items-center">
+                <span className="font-display font-black text-2xl tracking-tight text-white group-hover:text-gray-100 transition-colors">
+                  Skill
                 </span>
-                <span className="text-[11px] text-accent tracking-wider uppercase font-mono">
-                  Sobhasaria • Sikar
+                <span className="font-display font-black text-2xl tracking-tight text-accent text-glow ml-0.5">
+                  Expo
+                </span>
+                <span className="ml-2.5 px-2.5 py-0.5 rounded-full bg-accent text-[#050508] font-display font-black text-[10px] tracking-widest uppercase shadow-[0_0_12px_rgba(0,229,255,0.4)]">
+                  PHASE 3
                 </span>
               </div>
             </Link>

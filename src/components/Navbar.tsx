@@ -45,24 +45,20 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Brand Title (No image logo in navbar) */}
+            {/* SkillExpo PHASE 3 Logo (Styled to the site's dark cyber theme) */}
             <Link
               href="/"
-              className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg p-1"
+              className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-xl py-1 px-1 transition-transform"
             >
-              <div className="w-9 h-9 rounded-xl bg-accent/10 border border-accent/30 flex items-center justify-center text-accent group-hover:scale-105 group-hover:border-accent group-hover:bg-accent/20 transition-all shadow-[0_0_15px_rgba(0,229,255,0.2)]">
-                <Sparkles className="w-4 h-4 text-accent" />
-              </div>
-
-              <div className="flex flex-col">
-                <span className="font-display font-black text-base sm:text-lg tracking-wider text-white group-hover:text-accent transition-colors flex items-center gap-1.5">
-                  SKILL EXPO
-                  <span className="text-xs font-mono font-bold px-1.5 py-0.5 rounded bg-accent/15 text-accent border border-accent/30">
-                    3.0
-                  </span>
+              <div className="flex items-center">
+                <span className="font-display font-black text-2xl sm:text-[26px] tracking-tight text-white group-hover:text-gray-100 transition-colors">
+                  Skill
                 </span>
-                <span className="text-[10px] text-gray-400 tracking-wider uppercase hidden sm:block">
-                  Sobhasaria • Sikar
+                <span className="font-display font-black text-2xl sm:text-[26px] tracking-tight text-accent text-glow ml-0.5 group-hover:brightness-125 transition-all">
+                  Expo
+                </span>
+                <span className="ml-2.5 sm:ml-3 px-3 py-1 rounded-full bg-gradient-to-r from-accent to-[#00b0d3] text-[#050508] font-display font-black text-[10px] sm:text-xs tracking-widest uppercase shadow-[0_0_15px_rgba(0,229,255,0.4)] group-hover:shadow-[0_0_25px_rgba(0,229,255,0.8)] group-hover:scale-105 transition-all">
+                  PHASE 3
                 </span>
               </div>
             </Link>
