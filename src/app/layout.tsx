@@ -3,31 +3,47 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://skillexpo.sobhasaria.edu.in"),
-  title: "Skill Expo 3.0 | Sobhasaria Group of Institutions",
+  title: {
+    default: "Skill Expo 3.0 | Sobhasaria Group of Institutions, Sikar",
+    template: "%s | Skill Expo 3.0",
+  },
   description:
-    "Official website for Skill Expo Phase 3.0 — Rajasthan's premier inter-college skill competition featuring 9 live interactive zones across eSports, Tech, Science, Open Mic, Startups, and Culinary arts on 23-24 October 2026.",
+    "Official portal for Skill Expo Phase 3.0 — Rajasthan's premier inter-college skill exhibition & championship featuring 9 live interactive zones across eSports, Tech, Science, Open Mic, Startups, and Culinary arts on 23-24 October 2026 at Sobhasaria Campus, Sikar.",
+  applicationName: "Skill Expo",
+  authors: [{ name: "Sobhasaria Group of Institutions", url: "https://sobhasaria.edu.in" }],
+  creator: "Sobhasaria Group of Institutions",
+  publisher: "Sobhasaria Group of Institutions",
   keywords: [
+    "Skill Expo",
     "Skill Expo 3.0",
+    "Skill Expo Phase 3.0",
+    "Sobhasaria Skill Expo",
+    "Skill Expo Sobhasaria",
+    "Skill Expo Sikar",
+    "Skill Expo Rajasthan",
     "Sobhasaria Group of Institutions",
     "Sobhasaria Sikar",
     "College Fest 2026",
+    "Inter-college skill competition",
     "BGMI Tournament Sikar",
     "Open Mic Competition Rajasthan",
+    "Robotics Competition Rajasthan",
     "Science Fair Sikar",
-    "Sobhasaria Skill Expo",
-    "Inter-college competition",
+    "Rajasthan College Fest",
   ],
-  authors: [{ name: "Sobhasaria Group of Institutions", url: "https://sobhasaria.edu.in" }],
-  creator: "Sobhasaria Group of Institutions",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Skill Expo Phase 3.0 | Sobhasaria Group of Institutions",
+    title: "Skill Expo Phase 3.0 | Sobhasaria Group of Institutions, Sikar",
     description:
       "Explore • Learn • Innovate | 9 Live Zones, Exciting Prizes, Trophies & Certificates, 23-24 October 2026 at Sobhasaria Campus, Sikar.",
     url: "https://skillexpo.sobhasaria.edu.in",
-    siteName: "Skill Expo 3.0",
+    siteName: "Skill Expo",
     images: [
       {
         url: "/images/sobhasaria-hero-logo.png",
@@ -45,13 +61,23 @@ export const metadata: Metadata = {
     description:
       "Join Rajasthan's largest inter-college talent symposium. 9 Live Zones, E-Sports Arena, Open Mic, Exciting Prizes & Cool Rewards.",
     images: ["/images/sobhasaria-hero-logo.png"],
+    creator: "@sobhasaria",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   icons: {
-    icon: "data:,",
+    icon: "/images/sobhasaria-hero-logo.png",
+    shortcut: "/images/sobhasaria-hero-logo.png",
+    apple: "/images/sobhasaria-hero-logo.png",
   },
 };
 
@@ -71,6 +97,9 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased font-sans selection:bg-accent selection:text-background relative">
+        {/* Google Structured Data / JSON-LD */}
+        <JsonLd />
+
         {/* Custom Glowing Cursor for Desktop */}
         <CustomCursor />
 
