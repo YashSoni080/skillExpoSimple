@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Lock, Image as ImageIcon, Video, Sparkles } from "lucide-react";
+import { Play, Lock, Image as ImageIcon, Video, Sparkles, ExternalLink } from "lucide-react";
 import { GALLERY_ITEMS } from "@/data/gallery";
 import { GalleryMedia } from "@/types";
 import Lightbox from "@/components/Lightbox";
@@ -14,14 +14,34 @@ type MediaTypeFilter = "all" | "image" | "video";
 export default function GalleryPage() {
   const [activeTab, setActiveTab] = useState<GalleryTab>("phase-2");
   const [mediaType, setMediaType] = useState<MediaTypeFilter>("all");
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  // Filter items by phase and media type
+  // Available categories for current phase
+  const categories = [
+    "all",
+    ...Array.from(
+      new Set(
+        GALLERY_ITEMS.filter((item) => item.phase === activeTab).map(
+          (item) => item.category
+        )
+      )
+    ),
+  ];
+
+  // Filter items by phase, media type, and category
   const currentItems = GALLERY_ITEMS.filter((item) => {
     const matchesPhase = item.phase === activeTab;
     const matchesType = mediaType === "all" || item.type === mediaType;
-    return matchesPhase && matchesType;
+    const matchesCategory =
+      selectedCategory === "all" || item.category === selectedCategory;
+    return matchesPhase && matchesType && matchesCategory;
   });
+
+  const rawLinks = {
+    "phase-1": "https://fb.nxtlab.co.in/public/share/jlrzBuL8MDEqhmPlO-aFkg",
+    "phase-2": "https://immich.nxtlab.co.in/share/XX-JmfnyQx_M86bEMOtTpZ-S9zbnUGbiB5VeYIpAt-X3iU1I11OFOQZArLvRhICjsHI",
+  };
 
   return (
     <div className="min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -57,9 +77,12 @@ export default function GalleryPage() {
       </div>
 
       {/* Phase Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+      <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
         <button
-          onClick={() => setActiveTab("phase-1")}
+          onClick={() => {
+            setActiveTab("phase-1");
+            setSelectedCategory("all");
+          }}
           className={`px-6 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all ${
             activeTab === "phase-1"
               ? "bg-accent text-background shadow-[0_0_20px_rgba(0,229,255,0.4)] scale-105"
@@ -70,7 +93,10 @@ export default function GalleryPage() {
         </button>
 
         <button
-          onClick={() => setActiveTab("phase-2")}
+          onClick={() => {
+            setActiveTab("phase-2");
+            setSelectedCategory("all");
+          }}
           className={`px-6 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all ${
             activeTab === "phase-2"
               ? "bg-accent text-background shadow-[0_0_20px_rgba(0,229,255,0.4)] scale-105"
@@ -90,40 +116,97 @@ export default function GalleryPage() {
         </button>
       </div>
 
-      {/* Media Type Filter */}
-      <div className="flex items-center justify-center gap-2 mb-10">
-        <button
-          onClick={() => setMediaType("all")}
-          className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors ${
-            mediaType === "all"
-              ? "bg-white/20 text-white border border-white/30"
-              : "bg-white/5 text-gray-400 hover:text-white"
-          }`}
-        >
-          All Media ({GALLERY_ITEMS.filter((i) => i.phase === activeTab).length})
-        </button>
-        <button
-          onClick={() => setMediaType("image")}
-          className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors flex items-center gap-1.5 ${
-            mediaType === "image"
-              ? "bg-white/20 text-white border border-white/30"
-              : "bg-white/5 text-gray-400 hover:text-white"
-          }`}
-        >
-          <ImageIcon className="w-3.5 h-3.5" />
-          <span>Photos</span>
-        </button>
-        <button
-          onClick={() => setMediaType("video")}
-          className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors flex items-center gap-1.5 ${
-            mediaType === "video"
-              ? "bg-white/20 text-white border border-white/30"
-              : "bg-white/5 text-gray-400 hover:text-white"
-          }`}
-        >
-          <Video className="w-3.5 h-3.5" />
-          <span>Videos</span>
-        </button>
+      {/* Cloud Archive Direct Access Bar */}
+      {activeTab !== "phase-3" && (
+        <div className="flex items-center justify-center mb-8">
+          <a
+            href={rawLinks[activeTab]}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-accent/40 text-gray-300 hover:text-accent text-xs font-mono transition-all group"
+          >
+            <span>
+              {activeTab === "phase-1"
+                ? "Browse Raw Phase 1 Cloud Storage (111 items)"
+                : "Browse Raw Phase 2 Immich Album (170 items)"}
+            </span>
+            <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </a>
+        </div>
+      )}
+
+      {/* Media Type & Category Filters */}
+      <div className="space-y-4 mb-10">
+        {/* Media Type Filter */}
+        <div className="flex items-center justify-center gap-2">
+          <button
+            onClick={() => setMediaType("all")}
+            className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors ${
+              mediaType === "all"
+                ? "bg-white/20 text-white border border-white/30"
+                : "bg-white/5 text-gray-400 hover:text-white"
+            }`}
+          >
+            All Media ({GALLERY_ITEMS.filter((i) => i.phase === activeTab).length})
+          </button>
+          <button
+            onClick={() => setMediaType("image")}
+            className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors flex items-center gap-1.5 ${
+              mediaType === "image"
+                ? "bg-white/20 text-white border border-white/30"
+                : "bg-white/5 text-gray-400 hover:text-white"
+            }`}
+          >
+            <ImageIcon className="w-3.5 h-3.5" />
+            <span>
+              Photos (
+              {
+                GALLERY_ITEMS.filter(
+                  (i) => i.phase === activeTab && i.type === "image"
+                ).length
+              }
+              )
+            </span>
+          </button>
+          <button
+            onClick={() => setMediaType("video")}
+            className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors flex items-center gap-1.5 ${
+              mediaType === "video"
+                ? "bg-white/20 text-white border border-white/30"
+                : "bg-white/5 text-gray-400 hover:text-white"
+            }`}
+          >
+            <Video className="w-3.5 h-3.5" />
+            <span>
+              Videos (
+              {
+                GALLERY_ITEMS.filter(
+                  (i) => i.phase === activeTab && i.type === "video"
+                ).length
+              }
+              )
+            </span>
+          </button>
+        </div>
+
+        {/* Category Filter Chips */}
+        {categories.length > 2 && (
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-3 py-1 rounded-lg text-[11px] font-mono uppercase tracking-wider transition-all ${
+                  selectedCategory === cat
+                    ? "bg-accent/20 text-accent border border-accent/50 shadow-[0_0_10px_rgba(0,229,255,0.2)]"
+                    : "bg-white/[0.03] text-gray-400 border border-white/5 hover:border-white/20 hover:text-white"
+                }`}
+              >
+                {cat === "all" ? "All Zones" : cat}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Masonry / Grid Display */}

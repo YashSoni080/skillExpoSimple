@@ -100,14 +100,24 @@ export default function Lightbox({
           onClick={(e) => e.stopPropagation()}
         >
           {currentItem.type === "video" ? (
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-accent/40 shadow-[0_0_50px_rgba(0,229,255,0.2)]">
-              <iframe
-                src={`${currentItem.src}?autoplay=1`}
-                title={currentItem.title}
-                className="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-accent/40 shadow-[0_0_50px_rgba(0,229,255,0.2)] bg-black flex items-center justify-center">
+              {currentItem.src.includes("youtube.com") || currentItem.src.includes("youtu.be") || currentItem.src.includes("embed") ? (
+                <iframe
+                  src={`${currentItem.src}?autoplay=1`}
+                  title={currentItem.title}
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              ) : (
+                <video
+                  src={currentItem.src}
+                  controls
+                  autoPlay
+                  playsInline
+                  className="w-full h-full max-h-[75vh] object-contain"
+                />
+              )}
             </div>
           ) : (
             <div className="relative w-full max-h-[75vh] flex items-center justify-center">
