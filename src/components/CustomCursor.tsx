@@ -22,7 +22,7 @@ export default function CustomCursor() {
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
-      if (!isVisible) setIsVisible(true);
+      setIsVisible((prev) => (prev ? prev : true));
 
       // Check if hovering over an interactive element
       const target = e.target as HTMLElement | null;
@@ -35,7 +35,7 @@ export default function CustomCursor() {
     const handleMouseLeave = () => setIsVisible(false);
     const handleMouseEnter = () => setIsVisible(true);
 
-    window.addEventListener("mousemove", moveCursor);
+    window.addEventListener("mousemove", moveCursor, { passive: true });
     document.addEventListener("mouseleave", handleMouseLeave);
     document.addEventListener("mouseenter", handleMouseEnter);
 
@@ -44,7 +44,7 @@ export default function CustomCursor() {
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseenter", handleMouseEnter);
     };
-  }, [cursorX, cursorY, isVisible]);
+  }, [cursorX, cursorY]);
 
   if (isTouchDevice || !isVisible) return null;
 
@@ -52,7 +52,7 @@ export default function CustomCursor() {
     <>
       {/* Outer Glow Ring */}
       <motion.div
-        className="pointer-events-none fixed top-0 left-0 z-50 rounded-full border border-accent/60 bg-accent/10 backdrop-blur-[1px]"
+        className="pointer-events-none fixed top-0 left-0 z-50 rounded-full border border-accent/60 bg-accent/10 backdrop-blur-[1px] will-change-transform"
         style={{
           x: cursorX,
           y: cursorY,
@@ -70,7 +70,7 @@ export default function CustomCursor() {
 
       {/* Center Laser Dot */}
       <motion.div
-        className="pointer-events-none fixed top-0 left-0 z-50 h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_8px_#00E5FF]"
+        className="pointer-events-none fixed top-0 left-0 z-50 h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_8px_#00E5FF] will-change-transform"
         style={{
           x: cursorX,
           y: cursorY,

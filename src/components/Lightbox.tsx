@@ -58,7 +58,10 @@ export default function Lightbox({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-black/90 backdrop-blur-xl">
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-black/90 backdrop-blur-xl cursor-zoom-out"
+        onClick={onClose}
+      >
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -93,7 +96,7 @@ export default function Lightbox({
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.25 }}
-          className="relative max-w-5xl max-h-[85vh] w-full flex flex-col items-center justify-center"
+          className="relative max-w-5xl max-h-[85vh] w-full flex flex-col items-center justify-center cursor-default"
           onClick={(e) => e.stopPropagation()}
         >
           {currentItem.type === "video" ? (

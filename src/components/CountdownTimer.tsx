@@ -99,7 +99,7 @@ export default function CountdownTimer() {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -20, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="font-display font-black text-2xl sm:text-4xl md:text-5xl text-white tracking-tight text-glow"
+                    className="font-display font-black text-2xl sm:text-4xl md:text-5xl text-white tracking-tight text-glow tabular-nums inline-block w-full text-center"
                   >
                     {displayStr}
                   </motion.span>
