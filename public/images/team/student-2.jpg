@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <radialGradient id="tgrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0a0a14" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="#07070d"/>
+  <rect width="400" height="400" fill="url(#tgrad)"/>
+  <circle cx="200" cy="170" r="70" fill="#121224" stroke="#00E5FF" stroke-width="2" stroke-dasharray="4 4"/>
+  <text x="200" y="190" font-size="50" text-anchor="middle" fill="white">💻</text>
+  <text x="200" y="290" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#ffffff">Pooja Shekhawat</text>
+  <text x="200" y="320" font-family="sans-serif" font-size="13" text-anchor="middle" fill="#00E5FF">Technical Head</text>
+</svg>
