@@ -38,15 +38,15 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-          className="relative mb-6 flex items-center justify-center"
+          className="relative mb-6 flex items-center justify-center px-4"
         >
           <Image
             src="/images/sobhasaria-logo-transparent.png"
             alt="Sobhasaria Group of Institutions"
-            width={580}
-            height={130}
+            width={688}
+            height={153}
             priority
-            className="w-72 sm:w-96 md:w-[480px] lg:w-[540px] max-w-full h-auto object-contain filter drop-shadow-[0_0_25px_rgba(0,229,255,0.25)] brightness-110"
+            className="w-72 sm:w-96 md:w-[480px] lg:w-[560px] max-w-full h-auto object-contain filter drop-shadow-[0_0_30px_rgba(0,229,255,0.25)]"
           />
         </motion.div>
 
