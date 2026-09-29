@@ -129,20 +129,9 @@ export default function Lightbox({
             </div>
           )}
 
-          {/* Caption Details */}
-          <div className="mt-4 text-center max-w-2xl px-4">
-            <span className="text-[11px] font-mono uppercase tracking-widest text-accent font-semibold px-2 py-0.5 rounded bg-accent/15 border border-accent/30 inline-block mb-1">
-              {currentItem.category} • {currentItem.phase.toUpperCase()}
-            </span>
-            <h3 className="font-display font-bold text-lg sm:text-xl text-white">
-              {currentItem.title}
-            </h3>
-            {currentItem.caption && (
-              <p className="text-xs sm:text-sm text-gray-300 mt-1">
-                {currentItem.caption}
-              </p>
-            )}
-            <span className="text-xs text-gray-500 font-mono mt-1 block">
+          {/* Lightbox Footer Details */}
+          <div className="mt-3 text-center max-w-2xl px-4">
+            <span className="text-xs text-gray-400 font-mono">
               {currentIndex + 1} of {items.length}
             </span>
           </div>

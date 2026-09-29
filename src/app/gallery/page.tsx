@@ -243,25 +243,6 @@ export default function GalleryPage() {
                     </div>
                   </div>
                 )}
-
-                {/* Category Badge */}
-                <div className="absolute top-3 left-3">
-                  <span className="text-[10px] font-mono uppercase tracking-wider font-semibold px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-accent">
-                    {item.category}
-                  </span>
-                </div>
-              </div>
-
-              {/* Caption Card */}
-              <div className="p-4 bg-gradient-to-t from-[#07070e] to-transparent">
-                <h3 className="font-display font-bold text-sm sm:text-base text-white group-hover:text-accent transition-colors">
-                  {item.title}
-                </h3>
-                {item.caption && (
-                  <p className="text-xs text-gray-400 mt-1 line-clamp-1">
-                    {item.caption}
-                  </p>
-                )}
               </div>
             </motion.div>
           ))}
