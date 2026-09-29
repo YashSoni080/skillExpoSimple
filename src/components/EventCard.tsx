@@ -52,24 +52,30 @@ export default function EventCard({ event, onOpenDetails }: EventCardProps) {
 
         {/* Meta badges: Day & Venue */}
         <div className="space-y-1.5 mb-4 text-xs text-gray-400">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 min-w-0">
             <Calendar className="w-3.5 h-3.5 text-accent shrink-0" />
             <span className="truncate">{event.day} • {event.time}</span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 min-w-0">
             <MapPin className="w-3.5 h-3.5 text-neon-pink shrink-0" />
-            <span className="truncate">{event.venue}</span>
+            <span className="truncate" title={event.venue}>{event.venue}</span>
           </div>
         </div>
 
         {/* Prize pill */}
-        <div className="p-2.5 rounded-xl bg-neon-gold/5 border border-neon-gold/20 flex items-center gap-2 mb-6">
-          <Trophy className="w-4 h-4 text-neon-gold shrink-0" />
-          <div className="text-xs">
-            <span className="text-neon-gold font-bold">
+        <div className="p-3 rounded-xl bg-neon-gold/5 border border-neon-gold/20 flex items-start gap-2.5 mb-6 overflow-hidden">
+          <Trophy className="w-4 h-4 text-neon-gold shrink-0 mt-0.5" />
+          <div className="min-w-0 flex-1">
+            <span
+              className="text-xs font-bold text-neon-gold block truncate leading-tight"
+              title={event.prizes.first || "Official Trophy & Prizes"}
+            >
               {event.prizes.first || "Official Trophy & Prizes"}
             </span>
-            <span className="text-[11px] text-gray-400 block truncate">
+            <span
+              className="text-[11px] text-gray-400 block line-clamp-2 leading-relaxed mt-1"
+              title={event.prizes.description}
+            >
               {event.prizes.description}
             </span>
           </div>

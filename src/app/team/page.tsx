@@ -112,13 +112,13 @@ export default function TeamPage() {
                 </div>
 
                 {/* Member Details */}
-                <h3 className="font-display font-bold text-lg text-white group-hover:text-accent transition-colors">
+                <h3 className="font-display font-bold text-lg text-white group-hover:text-accent transition-colors truncate">
                   {member.name}
                 </h3>
-                <p className="text-xs font-semibold text-accent font-mono mt-0.5">
+                <p className="text-xs font-semibold text-accent font-mono mt-0.5 truncate" title={member.role}>
                   {member.role}
                 </p>
-                <p className="text-xs text-gray-400 mt-1">
+                <p className="text-xs text-gray-400 mt-1 truncate" title={member.department}>
                   {member.department}
                 </p>
 

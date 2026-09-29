@@ -63,9 +63,9 @@ export default function StatsCounters() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="flex flex-col items-center text-center p-4 rounded-xl border border-white/5 hover:border-accent/30 transition-colors bg-white/[0.02]"
+              className="flex flex-col items-center text-center p-4 rounded-xl border border-white/5 hover:border-accent/30 transition-colors bg-white/[0.02] overflow-hidden"
             >
-              <div className="text-glow mb-1 min-h-[44px] flex items-center justify-center">
+              <div className="text-glow mb-1 min-h-[44px] flex items-center justify-center w-full px-1">
                 {stat.value !== undefined ? (
                   <Counter
                     value={stat.value}
@@ -73,12 +73,12 @@ export default function StatsCounters() {
                     suffix={stat.suffix || ""}
                   />
                 ) : (
-                  <span className="font-display font-black text-2xl sm:text-3xl text-white text-center leading-tight">
+                  <span className="font-display font-black text-xl sm:text-2xl lg:text-3xl text-white text-center leading-tight break-words">
                     {stat.displayText}
                   </span>
                 )}
               </div>
-              <span className="text-sm font-semibold text-accent tracking-wide mb-1">
+              <span className="text-sm font-semibold text-accent tracking-wide mb-1 break-words">
                 {stat.label}
               </span>
               <span className="text-xs text-gray-400">

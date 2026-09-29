@@ -102,7 +102,7 @@ export default function PrizeHighlights() {
                   {card.title}
                 </h3>
 
-                <p className="text-sm font-semibold text-accent mb-3 font-mono">
+                <p className="text-sm font-semibold text-accent mb-3 font-mono break-words">
                   {card.reward}
                 </p>
 

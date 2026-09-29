@@ -117,7 +117,7 @@ export default function SchedulePage() {
                   <div className="p-2 rounded-lg bg-white/5 border border-white/10 text-accent shrink-0 hidden sm:block">
                     <DynamicIcon name={item.iconName} className="w-5 h-5" />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <h3 className="font-display font-bold text-lg sm:text-xl text-white group-hover:text-accent transition-colors">
                       {item.title}
                     </h3>
@@ -127,14 +127,14 @@ export default function SchedulePage() {
                   </div>
                 </div>
 
-                <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
+                <div className="mt-4 pt-4 border-t border-white/5 flex flex-wrap items-center justify-between gap-2">
                   <span className="text-xs text-gray-500 font-mono">
                     Sobhasaria Campus • Open to all verified colleges
                   </span>
 
                   <Link
                     href={`/events?category=${item.category}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:underline"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:underline shrink-0"
                   >
                     <span>View Zone Details</span>
                     <ArrowRight className="w-3.5 h-3.5" />

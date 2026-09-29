@@ -168,44 +168,44 @@ export default function EventModal({ event, onClose }: EventModalProps) {
             )}
 
             {/* Prizes Breakdown */}
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-neon-gold/10 via-white/[0.02] to-transparent border border-neon-gold/30">
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-neon-gold/10 via-white/[0.02] to-transparent border border-neon-gold/30 overflow-hidden">
               <h3 className="font-display font-bold text-white text-base mb-2 flex items-center gap-2">
-                <Trophy className="w-4 h-4 text-neon-gold" />
-                Prizes & Awards
+                <Trophy className="w-4 h-4 text-neon-gold shrink-0" />
+                <span>Prizes & Awards</span>
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-2.5">
                 {event.prizes.first && (
-                  <div className="p-2.5 rounded-lg bg-black/40 border border-neon-gold/30">
-                    <span className="text-[10px] text-neon-gold font-mono uppercase block">
+                  <div className="p-2.5 rounded-lg bg-black/40 border border-neon-gold/30 min-w-0 overflow-hidden">
+                    <span className="text-[10px] text-neon-gold font-mono uppercase block mb-0.5">
                       1st Place
                     </span>
-                    <span className="text-xs font-bold text-white">
+                    <span className="text-xs font-bold text-white block break-words leading-snug">
                       {event.prizes.first}
                     </span>
                   </div>
                 )}
                 {event.prizes.second && (
-                  <div className="p-2.5 rounded-lg bg-black/40 border border-white/10">
-                    <span className="text-[10px] text-gray-400 font-mono uppercase block">
+                  <div className="p-2.5 rounded-lg bg-black/40 border border-white/10 min-w-0 overflow-hidden">
+                    <span className="text-[10px] text-gray-400 font-mono uppercase block mb-0.5">
                       2nd Place
                     </span>
-                    <span className="text-xs font-bold text-white">
+                    <span className="text-xs font-bold text-white block break-words leading-snug">
                       {event.prizes.second}
                     </span>
                   </div>
                 )}
                 {event.prizes.third && (
-                  <div className="p-2.5 rounded-lg bg-black/40 border border-white/10">
-                    <span className="text-[10px] text-amber-600 font-mono uppercase block">
+                  <div className="p-2.5 rounded-lg bg-black/40 border border-white/10 min-w-0 overflow-hidden">
+                    <span className="text-[10px] text-amber-600 font-mono uppercase block mb-0.5">
                       3rd Place
                     </span>
-                    <span className="text-xs font-bold text-white">
+                    <span className="text-xs font-bold text-white block break-words leading-snug">
                       {event.prizes.third}
                     </span>
                   </div>
                 )}
               </div>
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-gray-400 leading-relaxed break-words">
                 {event.prizes.description}
               </p>
             </div>

@@ -196,14 +196,14 @@ export default function WhatIsExpo() {
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-white/5 flex items-center justify-between">
-                <span className="text-xs font-semibold px-2 py-0.5 rounded bg-accent/10 text-accent border border-accent/20">
+              <div className="pt-4 border-t border-white/5 flex items-center justify-between gap-2 overflow-hidden">
+                <span className="text-xs font-semibold px-2 py-0.5 rounded bg-accent/10 text-accent border border-accent/20 truncate">
                   {zone.badge}
                 </span>
 
                 <Link
                   href={`/events?category=${zone.id}`}
-                  className="inline-flex items-center gap-1 text-xs font-medium text-gray-300 group-hover:text-white transition-colors"
+                  className="inline-flex items-center gap-1 text-xs font-medium text-gray-300 group-hover:text-white transition-colors shrink-0"
                 >
                   <span>Explore</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
