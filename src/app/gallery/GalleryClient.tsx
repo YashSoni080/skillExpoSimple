@@ -2,12 +2,23 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Lock, Image as ImageIcon, Video, Sparkles } from "lucide-react";
+import { Play, Lock, Image as ImageIcon, Video, Sparkles, Download, ExternalLink } from "lucide-react";
 import { GALLERY_ITEMS } from "@/data/gallery";
 import Lightbox from "@/components/Lightbox";
 
 type GalleryPhase = "phase-1" | "phase-2" | "phase-3";
 type MediaTypeFilter = "all" | "image" | "video";
+
+const RAW_MEDIA_LINKS: Record<string, { url: string; label: string }> = {
+  "phase-1": {
+    url: "https://fb.nxtlab.co.in/public/share/jlrzBuL8MDEqhmPlO-aFkg",
+    label: "Download Raw Phase 1 Media Archive (111 Photos & Videos)",
+  },
+  "phase-2": {
+    url: "https://immich.nxtlab.co.in/share/XX-JmfnyQx_M86bEMOtTpZ-S9zbnUGbiB5VeYIpAt-X3iU1I11OFOQZArLvRhICjsHI",
+    label: "Download Raw Phase 2 Media Archive (170 Photos & Videos)",
+  },
+};
 
 export default function GalleryClient() {
   const [activePhase, setActivePhase] = useState<GalleryPhase>("phase-2");
@@ -86,6 +97,22 @@ export default function GalleryClient() {
           <span>Phase 3 — Coming Soon (23-24 Oct 2026)</span>
         </button>
       </div>
+
+      {/* Download Raw Media Button */}
+      {activePhase !== "phase-3" && RAW_MEDIA_LINKS[activePhase] && (
+        <div className="flex items-center justify-center mb-6">
+          <a
+            href={RAW_MEDIA_LINKS[activePhase].url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-surface/90 hover:bg-white/10 border border-accent/30 hover:border-accent text-gray-200 hover:text-accent text-xs sm:text-sm font-semibold transition-all shadow-[0_0_15px_rgba(0,229,255,0.1)] group"
+          >
+            <Download className="w-4 h-4 text-accent group-hover:scale-110 transition-transform" />
+            <span>{RAW_MEDIA_LINKS[activePhase].label}</span>
+            <ExternalLink className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+          </a>
+        </div>
+      )}
 
       {/* Only 3 Filter Tabs: All Media, Photos, Videos */}
       <div className="flex items-center justify-center gap-2 mb-10">

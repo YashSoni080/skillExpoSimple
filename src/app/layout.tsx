@@ -74,10 +74,11 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "google4a700c5c70d60f77",
+  },
   icons: {
-    icon: "/images/sobhasaria-hero-logo.png",
-    shortcut: "/images/sobhasaria-hero-logo.png",
-    apple: "/images/sobhasaria-hero-logo.png",
+    icon: "data:,",
   },
 };
 

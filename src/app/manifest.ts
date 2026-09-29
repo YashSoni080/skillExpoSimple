@@ -10,12 +10,6 @@ export default function manifest(): MetadataRoute.Manifest {
     display: "standalone",
     background_color: "#050508",
     theme_color: "#00E5FF",
-    icons: [
-      {
-        src: "/images/sobhasaria-hero-logo.png",
-        sizes: "any",
-        type: "image/png",
-      },
-    ],
+    icons: [],
   };
 }
