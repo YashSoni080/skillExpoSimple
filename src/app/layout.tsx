@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CustomCursor from "@/components/CustomCursor";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
@@ -46,9 +45,9 @@ export const metadata: Metadata = {
     siteName: "Skill Expo",
     images: [
       {
-        url: "/images/sobhasaria-hero-logo.png",
-        width: 1200,
-        height: 630,
+        url: "/images/sobhasaria-default-logo.png",
+        width: 1932,
+        height: 447,
         alt: "Skill Expo Phase 3.0 - Sobhasaria Group of Institutions",
       },
     ],
@@ -60,7 +59,7 @@ export const metadata: Metadata = {
     title: "Skill Expo Phase 3.0 | Sobhasaria Sikar",
     description:
       "Join Rajasthan's largest inter-college talent symposium. 9 Live Zones, E-Sports Arena, Open Mic, Exciting Prizes & Cool Rewards.",
-    images: ["/images/sobhasaria-hero-logo.png"],
+    images: ["/images/sobhasaria-default-logo.png"],
     creator: "@sobhasaria",
   },
   robots: {
@@ -88,7 +87,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="light">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -97,12 +96,9 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         />
       </head>
-      <body className="min-h-screen bg-background text-foreground antialiased font-sans selection:bg-accent selection:text-background relative">
+      <body className="min-h-screen bg-background text-foreground antialiased font-sans selection:bg-gray-900 selection:text-white relative">
         {/* Google Structured Data / JSON-LD */}
         <JsonLd />
-
-        {/* Custom Glowing Cursor for Desktop */}
-        <CustomCursor />
 
         {/* Global Sticky Navbar */}
         <Navbar />

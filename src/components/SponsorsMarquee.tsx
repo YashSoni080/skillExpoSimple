@@ -1,73 +1,107 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, FileText, ExternalLink, Plus } from "lucide-react";
-import { SPONSORS } from "@/data/sponsors";
+import { Download, FileText, ExternalLink, Building2, Store, Users } from "lucide-react";
+import { ECOSYSTEM_PARTNERS } from "@/data/sponsors";
 import { FEST_CONFIG } from "@/data/config";
 
 export default function SponsorsMarquee() {
-  // Double list for continuous seamless looping
-  const marqueeItems = [...SPONSORS, ...SPONSORS];
+  const marqueeItems = [...ECOSYSTEM_PARTNERS, ...ECOSYSTEM_PARTNERS];
 
   return (
-    <section className="relative py-20 overflow-hidden bg-[#06060c]">
-      {/* Background accents */}
+    <section className="relative py-20 overflow-hidden bg-gray-50/60">
+      {/* Section Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
-        <span className="text-xs font-mono font-semibold uppercase tracking-widest text-accent mb-2 inline-block">
-          Ecosystem & Industry Support
+        <span className="text-xs font-semibold uppercase tracking-wider text-gray-800 mb-2 inline-block">
+          Ecosystem & Campus Partners
         </span>
-        <h2 className="font-display font-black text-2xl sm:text-4xl text-white tracking-tight uppercase">
-          Sponsors & <span className="text-accent text-glow">Event Partners</span>
+        <h2 className="font-display font-extrabold text-2xl sm:text-4xl text-gray-900 tracking-tight">
+          Organizing Wings & <span className="text-gray-900">Brand Connect</span>
         </h2>
+        <p className="text-xs sm:text-sm text-gray-600 mt-2 max-w-xl mx-auto">
+          Powered collaboratively by Sobhasaria’s institutional cells, technical departments, and regional enterprise collaborators.
+        </p>
       </div>
 
-      {/* Infinite Marquee Track */}
-      <div className="relative w-full overflow-hidden py-6 border-y border-white/10 bg-surface/50 backdrop-blur-sm">
-        {/* Fade gradient overlays on edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-[#06060c] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-[#06060c] to-transparent z-10 pointer-events-none" />
+      {/* Infinite Ecosystem Marquee */}
+      <div className="relative w-full overflow-hidden py-4 border-y border-gray-200 bg-white">
+        {/* Soft edge masks */}
+        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
         <div className="flex w-max animate-marquee-left hover:[animation-play-state:paused] will-change-transform">
-          {marqueeItems.map((sponsor, index) => (
+          {marqueeItems.map((partner, index) => (
             <div
-              key={`${sponsor.id}-${index}`}
-              className="flex items-center justify-center mx-4 w-44 sm:w-56 h-16 rounded-2xl bg-white/[0.02] border border-dashed border-white/15 hover:border-accent/40 hover:bg-white/[0.04] transition-all duration-300 group cursor-default"
+              key={`${partner.id}-${index}`}
+              className="flex items-center gap-3 mx-3 px-4 py-3 rounded-xl bg-white border border-gray-200 hover:border-gray-300 transition-all duration-200 cursor-default shadow-sm shrink-0"
             >
-              <div className="w-8 h-8 rounded-xl border border-dashed border-white/20 flex items-center justify-center text-gray-500 group-hover:text-accent group-hover:border-accent/40 transition-colors">
-                <Plus className="w-4 h-4" />
+              <div className="w-8 h-8 rounded-lg bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-800 shrink-0">
+                <Building2 className="w-4 h-4" />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="text-xs font-semibold text-gray-900 whitespace-nowrap">
+                  {partner.name}
+                </span>
+                <span className="text-[10px] text-gray-500 whitespace-nowrap">
+                  {partner.category} • <span className="text-gray-700 font-medium">{partner.tag}</span>
+                </span>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Brochure Download CTA Card */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+      {/* Brand Connect Zone Invitation & Brochure Download Card */}
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-14">
+        {/* Brand Connect Box */}
+        <div className="mb-6 p-6 sm:p-7 rounded-2xl bg-white border border-gray-200 flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left shadow-sm">
+          <div className="flex items-center gap-4">
+            <div className="p-3.5 rounded-xl bg-gray-100 text-gray-800 shrink-0 border border-gray-200">
+              <Store className="w-6 h-6" />
+            </div>
+            <div>
+              <span className="text-[11px] font-semibold uppercase tracking-wider text-gray-500 block">
+                Brand Connect Zone • Day 1 & 2
+              </span>
+              <h3 className="font-display font-bold text-lg text-gray-900">
+                Showcase Your Brand to 5,000+ Students & Attendees
+              </h3>
+              <p className="text-xs text-gray-600 mt-0.5">
+                Stalls, product sampling, and sponsor booths available for regional startups and enterprises.
+              </p>
+            </div>
+          </div>
+
+          <a
+            href={`mailto:${FEST_CONFIG.contact.email}?subject=Brand%20Connect%20Sponsorship%20Inquiry%20-%20Skill%20Expo%203.0`}
+            className="shrink-0 px-4 py-2.5 rounded-xl bg-white hover:bg-gray-50 border border-gray-200 text-gray-800 text-xs font-semibold transition-colors flex items-center gap-1.5 shadow-sm"
+          >
+            <Users className="w-3.5 h-3.5 text-gray-700" />
+            <span>Sponsor / Partner With Us</span>
+          </a>
+        </div>
+
+        {/* Brochure Download CTA Card */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-[#0c0c1a] via-surface to-[#080814] border border-accent/30 shadow-[0_0_30px_rgba(0,229,255,0.15)] flex flex-col md:flex-row items-center justify-between gap-8"
+          className="relative rounded-2xl p-7 sm:p-8 bg-white border border-gray-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6"
         >
-          {/* Decorative Corner Lines */}
-          <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-accent" />
-          <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-accent" />
-
-          <div className="flex items-start gap-5">
-            <div className="p-4 rounded-2xl bg-accent/15 border border-accent/30 text-accent shrink-0 hidden sm:block">
-              <FileText className="w-10 h-10" />
+          <div className="flex items-start gap-4">
+            <div className="p-3.5 rounded-xl bg-gray-100 border border-gray-200 text-gray-800 shrink-0 hidden sm:block">
+              <FileText className="w-8 h-8" />
             </div>
 
             <div>
-              <span className="text-xs font-mono font-semibold text-accent tracking-widest uppercase mb-1 block">
-                Official Document
+              <span className="text-[11px] font-semibold text-gray-500 tracking-wider uppercase mb-1 block">
+                Official Festival Brochure
               </span>
-              <h3 className="font-display font-black text-2xl sm:text-3xl text-white mb-2">
-                Download Official Skill Expo Brochure
+              <h3 className="font-display font-extrabold text-xl sm:text-2xl text-gray-900 mb-1.5">
+                Download Complete Skill Expo Guidelines
               </h3>
-              <p className="text-xs sm:text-sm text-gray-400 max-w-xl leading-relaxed">
-                Contains complete day-wise rules, prize breakdown, evaluation rubrics,
-                guidelines for school & college teams, and campus navigation maps.
+              <p className="text-xs sm:text-sm text-gray-600 max-w-lg leading-relaxed">
+                Includes all zone rules, prize breakdowns, evaluation rubrics, school & college team guidelines, and campus map.
               </p>
             </div>
           </div>
@@ -76,7 +110,7 @@ export default function SponsorsMarquee() {
             <a
               href={FEST_CONFIG.brochurePath}
               download="Skill-Expo-3.0-Brochure.pdf"
-              className="glow-cyan-button flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm tracking-wide transition-all"
+              className="glow-cyan-button flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-xs tracking-wide transition-all shadow-sm"
             >
               <Download className="w-4 h-4" />
               <span>Download PDF</span>
@@ -86,10 +120,10 @@ export default function SponsorsMarquee() {
               href={FEST_CONFIG.brochurePath}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 hover:border-white/30 text-gray-300 hover:text-white text-sm font-medium transition-colors"
+              className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white border border-gray-200 hover:border-gray-300 text-gray-700 hover:text-gray-900 hover:bg-gray-50 text-xs font-medium transition-colors shadow-sm"
             >
               <span>View Online</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <ExternalLink className="w-3.5 h-3.5 text-gray-600" />
             </a>
           </div>
         </motion.div>

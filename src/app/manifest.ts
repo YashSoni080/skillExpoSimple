@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Official website for Skill Expo Phase 3.0 — Rajasthan's premier inter-college skill competition featuring 9 live interactive zones.",
     start_url: "/",
     display: "standalone",
-    background_color: "#050508",
-    theme_color: "#00E5FF",
+    background_color: "#000000",
+    theme_color: "#000000",
     icons: [],
   };
 }

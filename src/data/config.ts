@@ -55,7 +55,7 @@ export const FEST_CONFIG: {
     established: 1999,
     address: "NH-52, Gokulpura, Sikar, Rajasthan 332001",
     googleMapsUrl: "https://maps.google.com/?q=Sobhasaria+Group+of+Institutions+Sikar+Rajasthan",
-    logoPath: "/images/sobhasaria-logo.png",
+    logoPath: "/images/sobhasaria-default-logo.png",
   },
   festDates: {
     start: "2026-10-23T09:00:00+05:30",
@@ -68,10 +68,10 @@ export const FEST_CONFIG: {
   countdownLabel: "Registration Closes In",
   brochurePath: "/brochure.pdf",
   stats: [
-    { value: 9, suffix: "+", label: "Live Interactive Zones", description: "From Esports to AI & Startups" },
-    { value: 30, suffix: "+", label: "Competitions & Showcases", description: "Across Tech, Art, Science & Media" },
-    { displayText: "Cool Rewards", label: "Best Exciting Prizes", description: "Exciting prizes for winners in each zone" },
-    { displayText: "Trophies & Badges", label: "Certificates For All", description: "Expo Cup trophies & official merit certificates" },
+    { value: 9, suffix: " Zones", label: "Campus-Wide Showcases", description: "From eSports & AI to Open Mic & Startups" },
+    { value: 30, suffix: "+", label: "Events & Competitions", description: "Across technology, science, arts & culinary" },
+    { value: 5000, suffix: "+", label: "Expected Footfall", description: "Students, innovators & creators across Rajasthan" },
+    { displayText: "100% Certified", label: "Official Recognition", description: "Participation certificates for all + Expo Cup trophies" },
   ],
 
   contact: {

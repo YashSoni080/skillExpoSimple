@@ -8,20 +8,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "#050508",
-        surface: "#0A0A12",
-        "surface-light": "#121222",
+        background: "#ffffff",
+        surface: "#ffffff",
+        "surface-light": "#f8fafc",
         accent: {
-          DEFAULT: "#00E5FF",
-          hover: "#33EAFF",
-          glow: "rgba(0, 229, 255, 0.4)",
-          subtle: "rgba(0, 229, 255, 0.1)",
+          DEFAULT: "#0f172a",
+          hover: "#1e293b",
+          glow: "rgba(15, 23, 42, 0.08)",
+          subtle: "rgba(15, 23, 42, 0.04)",
         },
         neon: {
-          purple: "#B026FF",
-          pink: "#FF007F",
-          gold: "#FFB800",
-          emerald: "#10B981",
+          purple: "#0f172a",
+          pink: "#0f172a",
+          gold: "#0f172a",
+          emerald: "#0f172a",
         },
       },
       fontFamily: {

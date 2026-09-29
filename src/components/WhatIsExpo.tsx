@@ -24,7 +24,7 @@ const ZONES = [
     tagline: "Drop • Fight • Dominate",
     desc: "BGMI squad tournaments, Free Fire showdowns, and 1v1 aim trials with live caster commentary on arena screens.",
     icon: Gamepad2,
-    color: "#00E5FF",
+    color: "#FFFFFF",
     days: "Day 1 & 2",
     badge: "Exciting Prizes",
   },
@@ -34,7 +34,7 @@ const ZONES = [
     tagline: "Hands-on Coding & Hardware",
     desc: "Mobile apps, web architectures, autonomous robotics, drone cages, and live AI intelligence demonstrations.",
     icon: Code2,
-    color: "#3B82F6",
+    color: "#FFFFFF",
     days: "Day 1 (23 Oct)",
     badge: "Live Prototypes",
   },
@@ -44,7 +44,7 @@ const ZONES = [
     tagline: "Explore • Experiment • Innovate",
     desc: "Scientific working models, green innovations, clean water recycling, and everyday problem-solving inventions.",
     icon: Microscope,
-    color: "#10B981",
+    color: "#FFFFFF",
     days: "Day 1 (23 Oct)",
     badge: "Eco Inventions",
   },
@@ -54,7 +54,7 @@ const ZONES = [
     tagline: "Speak Your Mind, Shape Your Future",
     desc: "Grand performance arena for poetry, acoustic music, stand-up comedy, shayari, and unique stage talents.",
     icon: Mic2,
-    color: "#B026FF",
+    color: "#FFFFFF",
     days: "Day 2 (24 Oct)",
     badge: "Prizes for Top 3",
   },
@@ -64,7 +64,7 @@ const ZONES = [
     tagline: "Create • Influence • Inspire",
     desc: "Masterclasses on reels, viral algorithms, podcasts, photography walks, and live creator collab jam sessions.",
     icon: Video,
-    color: "#FF007F",
+    color: "#FFFFFF",
     days: "Day 2 (24 Oct)",
     badge: "Live Jam Session",
   },
@@ -74,7 +74,7 @@ const ZONES = [
     tagline: "Think × Analyse × Compete × Grow",
     desc: "10-minute B-plan pitches, participant-developed consumer products, and angel mentor feedback.",
     icon: TrendingUp,
-    color: "#FFB800",
+    color: "#FFFFFF",
     days: "Day 1 & 2",
     badge: "Incubation Grant",
   },
@@ -84,7 +84,7 @@ const ZONES = [
     tagline: "Imagine • Create • Inspire",
     desc: "Live painting, handmade origami, clay crafts, upcycling scrap art, and a bustling student art market.",
     icon: Palette,
-    color: "#EC4899",
+    color: "#FFFFFF",
     days: "Day 1 (23 Oct)",
     badge: "Art Market",
   },
@@ -94,7 +94,7 @@ const ZONES = [
     tagline: "Taste • Play • Enjoy",
     desc: "Live cooking & baking demos, food plating design, mixology mocktails, and 'The Student Stall Loop' business.",
     icon: Utensils,
-    color: "#F97316",
+    color: "#FFFFFF",
     days: "Day 1 & 2",
     badge: "Culinary Trophy",
   },
@@ -104,7 +104,7 @@ const ZONES = [
     tagline: "Justice For All • Know Your Rights",
     desc: "Free student and public consultation desks for Cyber Law, consumer protection, and civic documentation.",
     icon: Scale,
-    color: "#06B6D4",
+    color: "#FFFFFF",
     days: "Day 1 (23 Oct)",
     badge: "Free Consultation",
   },
@@ -112,101 +112,92 @@ const ZONES = [
 
 export default function WhatIsExpo() {
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-16">
+      <div className="text-center max-w-3xl mx-auto mb-14">
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/10 border border-accent/30 text-accent text-xs font-mono font-semibold uppercase tracking-wider mb-4"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 border border-gray-200 text-gray-800 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm"
         >
-          <Layers className="w-3.5 h-3.5" />
-          <span>Interactive Festival Architecture</span>
+          <Layers className="w-3.5 h-3.5 text-gray-700" />
+          <span>Campus Festival • 9 Dynamic Arenas</span>
         </motion.div>
 
         <motion.h2
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="font-display font-black text-3xl sm:text-5xl text-white tracking-tight uppercase mb-4"
+          transition={{ delay: 0.05 }}
+          className="font-display font-extrabold text-3xl sm:text-5xl text-gray-900 tracking-tight mb-4"
         >
-          What is <span className="text-accent text-glow">Skill Expo 3.0</span>?
+          What to Expect at <span className="text-gray-900">Skill Expo 3.0</span>
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="text-gray-300 text-sm sm:text-base leading-relaxed"
+          transition={{ delay: 0.1 }}
+          className="text-gray-600 text-sm sm:text-base leading-relaxed"
         >
-          Organized by <strong className="text-white">Sobhasaria Group of Institutions</strong>, Skill Expo is
-          Rajasthan’s premier hands-on inter-college talent symposium. Moving far beyond traditional paper
-          presentations, Phase 3.0 activates <strong className="text-accent">9 dedicated live zones</strong> spanning
-          cutting-edge technology, creative arts, competitive eSports, culinary mastery, and civic empowerment.
+          Organized by <strong className="text-gray-900 font-semibold">Sobhasaria Group of Institutions</strong>, Skill Expo is
+          Rajasthan’s premier hands-on inter-college festival. Stepping far beyond theoretical paper
+          presentations, Phase 3.0 activates <strong className="text-gray-900 font-semibold">9 dedicated live zones</strong> spanning
+          software engineering, green science, competitive gaming, spoken arts, culinary ventures, and free legal aid.
         </motion.p>
       </div>
 
       {/* 9 Live Zones Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
         {ZONES.map((zone, idx) => {
           const Icon = zone.icon;
           return (
             <motion.div
               key={zone.id}
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.07 }}
-              className="group relative flex flex-col justify-between p-6 rounded-2xl bg-surface/70 border border-white/10 hover:border-accent/40 backdrop-blur-md transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,229,255,0.12)] hover:-translate-y-1"
+              transition={{ duration: 0.4, delay: idx * 0.05 }}
+              className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white border border-gray-200 hover:border-gray-300 transition-all duration-200 hover:-translate-y-1 shadow-sm hover:shadow-md"
             >
-              {/* Subtle accent glow behind icon */}
-              <div
-                className="absolute top-0 right-0 w-32 h-32 rounded-full blur-[50px] opacity-10 group-hover:opacity-25 transition-opacity"
-                style={{ backgroundColor: zone.color }}
-              />
-
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div
-                    className="p-3 rounded-xl border border-white/10 bg-white/5 group-hover:scale-110 transition-transform"
-                    style={{ color: zone.color }}
-                  >
-                    <Icon className="w-6 h-6" />
+                  <div className="p-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 transition-transform duration-200 group-hover:scale-105">
+                    <Icon className="w-5 h-5 text-gray-800" />
                   </div>
 
-                  <span className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300">
+                  <span className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-gray-100 border border-gray-200 text-gray-600">
                     {zone.days}
                   </span>
                 </div>
 
                 <div className="mb-2">
-                  <span className="text-[10px] font-mono tracking-wider uppercase text-accent font-semibold">
+                  <span className="text-[11px] font-semibold tracking-wide uppercase text-gray-500">
                     {zone.tagline}
                   </span>
-                  <h3 className="font-display font-bold text-xl text-white group-hover:text-accent transition-colors mt-0.5">
+                  <h3 className="font-display font-bold text-lg text-gray-900 group-hover:text-black transition-colors mt-0.5">
                     {zone.title}
                   </h3>
                 </div>
 
-                <p className="text-xs sm:text-sm text-gray-400 line-clamp-3 mb-4 leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-600 line-clamp-3 mb-4 leading-relaxed">
                   {zone.desc}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-white/5 flex items-center justify-between gap-2 overflow-hidden">
-                <span className="text-xs font-semibold px-2 py-0.5 rounded bg-accent/10 text-accent border border-accent/20 truncate">
+              <div className="pt-4 border-t border-gray-100 flex items-center justify-between gap-2 overflow-hidden">
+                <span className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-gray-100 text-gray-700 border border-gray-200 truncate">
                   {zone.badge}
                 </span>
 
                 <Link
                   href={`/events?category=${zone.id}`}
-                  className="inline-flex items-center gap-1 text-xs font-medium text-gray-300 group-hover:text-white transition-colors shrink-0"
+                  className="inline-flex items-center gap-1 text-xs font-semibold text-gray-600 group-hover:text-gray-900 transition-colors shrink-0"
                 >
-                  <span>Explore</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  <span>Explore Events</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
               </div>
             </motion.div>
@@ -216,18 +207,17 @@ export default function WhatIsExpo() {
 
       {/* Bottom CTA Strip */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mt-16 text-center"
+        className="mt-14 text-center"
       >
         <Link
           href="/events"
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-surface border border-accent/30 text-white font-semibold hover:border-accent hover:shadow-[0_0_20px_rgba(0,229,255,0.3)] transition-all"
+          className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white border border-gray-200 text-gray-800 font-medium hover:border-gray-400 hover:bg-gray-50 transition-all shadow-sm"
         >
-          <Sparkles className="w-4 h-4 text-accent" />
-          <span>Browse All Competitions & Rules</span>
-          <ArrowRight className="w-4 h-4" />
+          <span>Browse All Competitions, Categories & Rules</span>
+          <ArrowRight className="w-4 h-4 text-gray-700" />
         </Link>
       </motion.div>
     </section>

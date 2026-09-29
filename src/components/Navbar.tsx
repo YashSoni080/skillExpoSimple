@@ -39,32 +39,32 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           scrolled
-            ? "bg-[#050508]/85 backdrop-blur-md border-b border-accent/20 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.8)]"
-            : "bg-transparent py-5"
+            ? "bg-white/90 backdrop-blur-md border-b border-gray-200 py-3 shadow-sm"
+            : "bg-white/60 backdrop-blur-sm py-4 border-b border-gray-100"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* SkillExpo PHASE 3 Logo (Styled to the site's dark cyber theme) */}
+            {/* SkillExpo PHASE 3 Logo */}
             <Link
               href="/"
-              className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-xl py-1 px-1 transition-transform"
+              className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 rounded-xl py-1 px-1 transition-transform"
             >
               <div className="flex items-center">
-                <span className="font-display font-black text-2xl sm:text-[26px] tracking-tight text-white group-hover:text-gray-100 transition-colors">
+                <span className="font-display font-extrabold text-2xl tracking-tight text-gray-900 group-hover:text-black transition-colors">
                   Skill
                 </span>
-                <span className="font-display font-black text-2xl sm:text-[26px] tracking-tight text-accent text-glow ml-0.5 group-hover:brightness-125 transition-all">
+                <span className="font-display font-extrabold text-2xl tracking-tight text-gray-900 ml-0.5 transition-all">
                   Expo
                 </span>
-                <span className="ml-2.5 sm:ml-3 px-3 py-1 rounded-full bg-gradient-to-r from-accent to-[#00b0d3] text-[#050508] font-display font-black text-[10px] sm:text-xs tracking-widest uppercase shadow-[0_0_15px_rgba(0,229,255,0.4)] group-hover:shadow-[0_0_25px_rgba(0,229,255,0.8)] group-hover:scale-105 transition-all">
-                  PHASE 3
+                <span className="ml-2.5 px-2.5 py-0.5 rounded-full bg-gray-100 border border-gray-200 text-gray-800 font-display font-bold text-[10px] sm:text-xs tracking-wider uppercase">
+                  Phase 3.0
                 </span>
               </div>
             </Link>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center gap-1 lg:gap-2 bg-surface/60 border border-white/10 rounded-full px-4 py-1.5 backdrop-blur-md">
+            <nav className="hidden md:flex items-center gap-1 bg-white/90 border border-gray-200 shadow-sm rounded-full px-3 py-1.5 backdrop-blur-md">
               {NAV_LINKS.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -73,14 +73,14 @@ export default function Navbar() {
                     href={link.href}
                     className={`relative px-3.5 py-1.5 text-xs lg:text-sm font-medium transition-colors rounded-full ${
                       isActive
-                        ? "text-white"
-                        : "text-gray-400 hover:text-white"
+                        ? "text-gray-900 font-semibold"
+                        : "text-gray-600 hover:text-gray-900"
                     }`}
                   >
                     {isActive && (
                       <motion.div
                         layoutId="navPill"
-                        className="absolute inset-0 bg-accent/15 border border-accent/40 rounded-full"
+                        className="absolute inset-0 bg-gray-100 border border-gray-200 rounded-full"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -91,25 +91,24 @@ export default function Navbar() {
             </nav>
 
             {/* Desktop Actions */}
-            <div className="hidden md:flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-2.5">
               {/* Brochure Download Link */}
               <a
                 href={FEST_CONFIG.brochurePath}
                 download="Skill-Expo-3.0-Brochure.pdf"
-                className="flex items-center gap-1.5 text-xs lg:text-sm font-medium text-gray-300 hover:text-accent px-3 py-2 rounded-lg border border-white/10 hover:border-accent/30 transition-all hover:bg-accent/5"
+                className="flex items-center gap-1.5 text-xs lg:text-sm font-medium text-gray-700 hover:text-gray-900 px-3 py-2 rounded-xl border border-gray-200 hover:border-gray-300 transition-all hover:bg-gray-50 shadow-sm"
                 title="Download Official Fest Brochure PDF"
               >
-                <Download className="w-3.5 h-3.5 text-accent" />
+                <Download className="w-3.5 h-3.5 text-gray-700" />
                 <span>Brochure</span>
               </a>
 
               {/* Register CTA */}
               <Link
                 href="/events"
-                className="flex items-center gap-1.5 text-xs lg:text-sm font-semibold text-background bg-accent hover:bg-accent-hover px-4 py-2 rounded-lg shadow-[0_0_15px_rgba(0,229,255,0.4)] hover:shadow-[0_0_25px_rgba(0,229,255,0.7)] transition-all transform hover:-translate-y-0.5"
+                className="glow-cyan-button flex items-center gap-1.5 text-xs lg:text-sm font-semibold px-4 py-2 rounded-xl transition-all shadow-sm"
               >
-                <Sparkles className="w-3.5 h-3.5 text-background" />
-                <span>Register Now</span>
+                <span>Register</span>
               </Link>
             </div>
 
@@ -118,7 +117,7 @@ export default function Navbar() {
               <a
                 href={FEST_CONFIG.brochurePath}
                 download="Skill-Expo-3.0-Brochure.pdf"
-                className="p-2 rounded-lg text-accent border border-accent/20 bg-accent/5"
+                className="p-2 rounded-lg text-gray-800 border border-gray-200 bg-gray-50"
                 aria-label="Download Fest Brochure"
               >
                 <Download className="w-4 h-4" />
@@ -127,7 +126,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-lg border border-white/10 text-gray-300 hover:text-white hover:border-accent/40 transition-colors"
+                className="p-2 rounded-lg border border-gray-200 text-gray-700 hover:text-gray-900 hover:border-gray-300 transition-colors"
                 aria-expanded={mobileMenuOpen}
                 aria-label="Toggle navigation menu"
               >
@@ -146,7 +145,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[60px] z-30 bg-[#07070e]/95 backdrop-blur-xl border-b border-accent/20 px-6 py-6 md:hidden shadow-2xl"
+            className="fixed inset-x-0 top-[60px] z-30 bg-white/95 backdrop-blur-xl border-b border-gray-200 px-6 py-6 md:hidden shadow-xl"
           >
             <nav className="flex flex-col gap-3">
               {NAV_LINKS.map((link) => {
@@ -158,8 +157,8 @@ export default function Navbar() {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`flex items-center justify-between py-2.5 px-4 rounded-lg text-base font-medium transition-colors ${
                       isActive
-                        ? "bg-accent/15 text-accent border border-accent/30"
-                        : "text-gray-300 hover:bg-white/5 hover:text-white"
+                        ? "bg-gray-100 text-gray-900 border border-gray-200 font-semibold"
+                        : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                     }`}
                   >
                     <span>{link.name}</span>
@@ -168,11 +167,11 @@ export default function Navbar() {
                 );
               })}
 
-              <div className="pt-4 border-t border-white/10 flex flex-col gap-3 mt-2">
+              <div className="pt-4 border-t border-gray-200 flex flex-col gap-3 mt-2">
                 <a
                   href={FEST_CONFIG.brochurePath}
                   download="Skill-Expo-3.0-Brochure.pdf"
-                  className="flex items-center justify-center gap-2 py-3 rounded-lg border border-accent/30 text-accent font-medium hover:bg-accent/10 transition-colors text-sm"
+                  className="flex items-center justify-center gap-2 py-3 rounded-lg border border-gray-200 text-gray-800 font-medium hover:bg-gray-50 transition-colors text-sm"
                 >
                   <Download className="w-4 h-4" />
                   <span>Download Official Brochure (PDF)</span>
@@ -181,9 +180,8 @@ export default function Navbar() {
                 <Link
                   href="/events"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 py-3 rounded-lg bg-accent text-background font-bold shadow-[0_0_20px_rgba(0,229,255,0.4)] text-sm"
+                  className="glow-cyan-button flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-sm shadow-sm transition-colors"
                 >
-                  <Sparkles className="w-4 h-4" />
                   <span>Explore Events & Register</span>
                 </Link>
               </div>

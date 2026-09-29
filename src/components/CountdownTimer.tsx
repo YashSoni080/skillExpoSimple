@@ -65,41 +65,35 @@ export default function CountdownTimer() {
       {/* Header Badge */}
       <div className="flex items-center justify-center gap-2 mb-3">
         <span className="flex h-2 w-2 relative">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-900 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-900"></span>
         </span>
-        <span className="text-xs uppercase font-mono tracking-widest text-accent font-semibold flex items-center gap-1.5">
+        <span className="text-xs uppercase font-mono tracking-widest text-gray-800 font-semibold flex items-center gap-1.5">
           <Clock className="w-3.5 h-3.5" />
           {timeLeft.isExpired ? "Event Has Begun" : FEST_CONFIG.countdownLabel}
         </span>
       </div>
 
       {/* Digits Grid */}
-      <div className="grid grid-cols-4 gap-2 sm:gap-4 md:gap-6">
+      <div className="grid grid-cols-4 gap-2.5 sm:gap-4 md:gap-5">
         {timeUnits.map((unit) => {
           const displayStr = mounted ? String(unit.value).padStart(2, "0") : "00";
 
           return (
             <div
               key={unit.label}
-              className="relative flex flex-col items-center justify-center p-3 sm:p-5 rounded-xl bg-gradient-to-b from-[#121226]/80 to-[#080812]/90 border border-accent/25 shadow-[0_0_20px_rgba(0,229,255,0.08)] group hover:border-accent/60 transition-colors"
+              className="relative flex flex-col items-center justify-center p-3.5 sm:p-5 rounded-2xl bg-white border border-gray-200 hover:border-gray-400 shadow-sm transition-all"
             >
-              {/* Corner Accents */}
-              <div className="absolute top-1 left-1 w-1.5 h-1.5 border-t border-l border-accent opacity-60" />
-              <div className="absolute top-1 right-1 w-1.5 h-1.5 border-t border-r border-accent opacity-60" />
-              <div className="absolute bottom-1 left-1 w-1.5 h-1.5 border-b border-l border-accent opacity-60" />
-              <div className="absolute bottom-1 right-1 w-1.5 h-1.5 border-b border-r border-accent opacity-60" />
-
               {/* Number Display with AnimatePresence for digit flip */}
-              <div className="h-10 sm:h-14 md:h-16 flex items-center justify-center overflow-hidden">
+              <div className="h-10 sm:h-12 md:h-14 flex items-center justify-center overflow-hidden">
                 <AnimatePresence mode="popLayout">
                   <motion.span
                     key={displayStr}
-                    initial={{ y: 20, opacity: 0 }}
+                    initial={{ y: 15, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -20, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="font-display font-black text-2xl sm:text-4xl md:text-5xl text-white tracking-tight text-glow tabular-nums inline-block w-full text-center"
+                    exit={{ y: -15, opacity: 0 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="font-display font-extrabold text-2xl sm:text-4xl md:text-5xl text-gray-900 tracking-tight tabular-nums inline-block w-full text-center"
                   >
                     {displayStr}
                   </motion.span>
@@ -107,7 +101,7 @@ export default function CountdownTimer() {
               </div>
 
               {/* Unit Label */}
-              <span className="text-[10px] sm:text-xs font-mono font-medium tracking-widest text-gray-400 group-hover:text-accent transition-colors mt-1">
+              <span className="text-[10px] sm:text-xs font-semibold tracking-wider text-gray-500 mt-1 uppercase">
                 {unit.label}
               </span>
             </div>
@@ -116,9 +110,9 @@ export default function CountdownTimer() {
       </div>
 
       {/* Target Date Note */}
-      <p className="text-center text-xs text-gray-400 mt-3 font-mono">
-        Slots close strictly on <span className="text-white font-medium">October 15, 2026</span> • Main Event on{" "}
-        <span className="text-accent font-medium">23–24 October 2026</span>
+      <p className="text-center text-xs text-gray-500 mt-3.5">
+        Registration closes on <span className="text-gray-900 font-medium">October 15, 2026</span> • Main Fest on{" "}
+        <span className="text-gray-900 font-semibold">23–24 October 2026</span>
       </p>
     </div>
   );

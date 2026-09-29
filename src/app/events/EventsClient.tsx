@@ -39,51 +39,51 @@ function EventsContent() {
   return (
     <div className="min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Page Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
+      <div className="text-center max-w-3xl mx-auto mb-10">
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/15 border border-accent/30 text-accent text-xs font-mono font-semibold uppercase tracking-wider mb-4"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 border border-gray-200 text-gray-800 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm"
         >
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>Official Event Directory</span>
+          <Sparkles className="w-3.5 h-3.5 text-gray-700" />
+          <span>Competitions & Interactive Arenas</span>
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="font-display font-black text-3xl sm:text-5xl md:text-6xl text-white tracking-tight uppercase mb-4"
+          transition={{ delay: 0.05 }}
+          className="font-display font-extrabold text-3xl sm:text-5xl text-gray-900 tracking-tight mb-3"
         >
-          All Competitions & <span className="text-accent text-glow">Zones</span>
+          Explore All Events & <span className="text-gray-900">Live Zones</span>
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-gray-300 text-sm sm:text-base leading-relaxed"
+          transition={{ delay: 0.1 }}
+          className="text-gray-600 text-sm sm:text-base leading-relaxed"
         >
-          Filter through our 9 interactive zones. Click any event to inspect full rules, team formats,
+          Filter across 9 interactive campus zones. Click any event to inspect competition rules, team formats,
           and prize pools, or register directly with pre-filled forms.
         </motion.p>
       </div>
 
       {/* Search Bar & Stats */}
-      <div className="max-w-2xl mx-auto mb-8">
+      <div className="max-w-xl mx-auto mb-8">
         <div className="relative">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search events, keywords, BGMI, robotics, open mic, prizes..."
-            className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-surface/80 border border-white/10 focus:border-accent focus:ring-1 focus:ring-accent text-white placeholder-gray-500 text-sm backdrop-blur-md outline-none transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)]"
+            placeholder="Search events, BGMI, robotics, open mic, prizes..."
+            className="w-full pl-11 pr-4 py-3 rounded-xl bg-white border border-gray-200 focus:border-gray-400 focus:ring-1 focus:ring-gray-400 text-gray-900 placeholder-gray-400 text-sm outline-none transition-all shadow-sm"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery("")}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-mono text-gray-400 hover:text-white"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-gray-500 hover:text-black font-semibold"
             >
               CLEAR
             </button>
@@ -92,18 +92,18 @@ function EventsContent() {
       </div>
 
       {/* Filter Tabs Horizontal Scroll */}
-      <div className="mb-10 overflow-x-auto pb-3 scrollbar-none">
-        <div className="flex items-center gap-2 min-w-max mx-auto justify-start sm:justify-center">
+      <div className="mb-10 overflow-x-auto pb-2 scrollbar-none">
+        <div className="flex items-center gap-1.5 min-w-max mx-auto justify-start sm:justify-center">
           {EVENT_CATEGORIES.map((cat) => {
             const isSelected = selectedCategory === cat.id;
             return (
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id as EventCategory)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
+                className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
                   isSelected
-                    ? "bg-accent text-background font-bold shadow-[0_0_20px_rgba(0,229,255,0.4)] scale-105"
-                    : "bg-surface/60 text-gray-400 hover:text-white hover:bg-white/5 border border-white/5"
+                    ? "bg-gray-900 text-white font-semibold shadow-sm"
+                    : "bg-white text-gray-700 hover:text-black hover:bg-gray-50 border border-gray-200 shadow-sm"
                 }`}
               >
                 {cat.label}
@@ -114,12 +114,12 @@ function EventsContent() {
       </div>
 
       {/* Events Results Header */}
-      <div className="flex items-center justify-between mb-6 text-xs text-gray-400 border-b border-white/10 pb-3">
+      <div className="flex items-center justify-between mb-6 text-xs text-gray-500 border-b border-gray-200 pb-3">
         <span>
-          Showing <strong className="text-white">{filteredEvents.length}</strong> event
+          Showing <strong className="text-gray-900 font-semibold">{filteredEvents.length}</strong> event
           {filteredEvents.length === 1 ? "" : "s"}
         </span>
-        <span className="font-mono text-accent">
+        <span className="font-mono text-gray-800 font-semibold">
           {selectedCategory === "all" ? "All Categories" : selectedCategory.toUpperCase()}
         </span>
       </div>
@@ -141,10 +141,10 @@ function EventsContent() {
           </AnimatePresence>
         </motion.div>
       ) : (
-        <div className="text-center py-20 bg-surface/40 rounded-2xl border border-white/5">
-          <AlertCircle className="w-10 h-10 text-gray-500 mx-auto mb-3" />
-          <h3 className="text-lg font-bold text-white mb-1">No matching events found</h3>
-          <p className="text-xs text-gray-400 mb-4">
+        <div className="text-center py-20 bg-white rounded-2xl border border-gray-200 shadow-sm">
+          <AlertCircle className="w-10 h-10 text-gray-400 mx-auto mb-3" />
+          <h3 className="text-lg font-bold text-gray-900 mb-1">No matching events found</h3>
+          <p className="text-xs text-gray-500 mb-4">
             Try adjusting your search query or switching category filters.
           </p>
           <button
@@ -152,7 +152,7 @@ function EventsContent() {
               setSelectedCategory("all");
               setSearchQuery("");
             }}
-            className="px-4 py-2 rounded-xl bg-accent/20 text-accent border border-accent/30 text-xs font-semibold hover:bg-accent hover:text-background transition-colors"
+            className="glow-cyan-button px-4 py-2 rounded-xl text-xs font-semibold shadow-sm"
           >
             Reset Filters
           </button>
@@ -172,7 +172,7 @@ export default function EventsClient() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen pt-32 text-center text-accent font-mono text-sm">
+        <div className="min-h-screen pt-32 text-center text-gray-600 font-mono text-sm">
           Loading Skill Expo Events...
         </div>
       }

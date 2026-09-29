@@ -27,48 +27,48 @@ export default function TeamClient() {
   return (
     <div className="min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Page Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
+      <div className="text-center max-w-3xl mx-auto mb-10">
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/15 border border-accent/30 text-accent text-xs font-mono font-semibold uppercase tracking-wider mb-4"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 border border-gray-200 text-gray-800 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm"
         >
-          <Award className="w-3.5 h-3.5" />
-          <span>The Minds Behind The Fest</span>
+          <Award className="w-3.5 h-3.5 text-gray-700" />
+          <span>Leadership & Student Convenors</span>
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="font-display font-black text-3xl sm:text-5xl md:text-6xl text-white tracking-tight uppercase mb-4"
+          transition={{ delay: 0.05 }}
+          className="font-display font-extrabold text-3xl sm:text-5xl text-gray-900 tracking-tight mb-3"
         >
-          Organizing <span className="text-accent text-glow">Committee</span>
+          Organizing <span className="text-gray-900">Committee</span>
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-gray-300 text-sm sm:text-base leading-relaxed"
+          transition={{ delay: 0.1 }}
+          className="text-gray-600 text-sm sm:text-base leading-relaxed"
         >
-          Meet the visionary leadership, faculty mentors, and passionate student pioneers
+          Meet the academic leadership, faculty mentors, and student coordinators
           powering Skill Expo Phase 3.0 at Sobhasaria Group of Institutions.
         </motion.p>
       </div>
 
       {/* Category Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+      <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
         {categories.map((cat) => {
           const isSelected = selectedCategory === cat.value;
           return (
             <button
               key={cat.value}
               onClick={() => setSelectedCategory(cat.value)}
-              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all ${
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
                 isSelected
-                  ? "bg-accent text-background font-bold shadow-[0_0_20px_rgba(0,229,255,0.4)] scale-105"
-                  : "bg-surface/80 border border-white/10 text-gray-400 hover:text-white"
+                  ? "bg-gray-900 text-white font-semibold shadow-sm"
+                  : "bg-white border border-gray-200 text-gray-700 hover:text-black hover:bg-gray-50 shadow-sm"
               }`}
             >
               {cat.label}
@@ -91,11 +91,11 @@ export default function TeamClient() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.3 }}
-              className="group relative flex flex-col justify-between rounded-2xl overflow-hidden bg-surface/80 border border-white/10 hover:border-accent/40 backdrop-blur-md transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,229,255,0.15)] hover:-translate-y-1.5 p-5"
+              className="group relative flex flex-col justify-between rounded-2xl overflow-hidden bg-white border border-gray-200 hover:border-gray-300 transition-all duration-200 hover:-translate-y-1 p-5 shadow-sm hover:shadow-md"
             >
               <div>
                 {/* Photo Container */}
-                <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-[#0e0e1a] mb-4 border border-white/5 group-hover:border-accent/30 transition-colors">
+                <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-gray-100 mb-4 border border-gray-200 transition-colors">
                   <img
                     src={member.image}
                     alt={member.name}
@@ -105,39 +105,39 @@ export default function TeamClient() {
 
                   {/* Category Chip */}
                   <div className="absolute top-2.5 left-2.5">
-                    <span className="text-[10px] font-mono uppercase tracking-wider font-semibold px-2 py-0.5 rounded bg-black/70 backdrop-blur-md border border-white/15 text-accent">
+                    <span className="text-[10px] font-semibold tracking-wide px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-md border border-gray-200 text-gray-800 shadow-sm">
                       {member.category}
                     </span>
                   </div>
                 </div>
 
                 {/* Member Details */}
-                <h3 className="font-display font-bold text-lg text-white group-hover:text-accent transition-colors truncate">
+                <h3 className="font-display font-bold text-lg text-gray-900 group-hover:text-black transition-colors truncate">
                   {member.name}
                 </h3>
-                <p className="text-xs font-semibold text-accent font-mono mt-0.5 truncate" title={member.role}>
+                <p className="text-xs font-semibold text-gray-800 font-mono mt-0.5 truncate" title={member.role}>
                   {member.role}
                 </p>
-                <p className="text-xs text-gray-400 mt-1 truncate" title={member.department}>
+                <p className="text-xs text-gray-500 mt-1 truncate" title={member.department}>
                   {member.department}
                 </p>
 
                 {member.bio && (
-                  <p className="text-xs text-gray-400 mt-2.5 line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-gray-600 mt-2.5 line-clamp-2 leading-relaxed">
                     {member.bio}
                   </p>
                 )}
               </div>
 
               {/* Social Links Bar */}
-              <div className="pt-4 mt-4 border-t border-white/5 flex items-center gap-2.5">
+              <div className="pt-4 mt-4 border-t border-gray-100 flex items-center gap-2.5">
                 {member.socials.linkedin && (
                   <a
                     href={member.socials.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${member.name} LinkedIn`}
-                    className="p-1.5 rounded-lg bg-white/5 hover:bg-accent/20 hover:text-accent text-gray-400 transition-colors"
+                    className="p-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 hover:text-black text-gray-600 transition-colors shadow-sm"
                   >
                     <Linkedin className="w-3.5 h-3.5" />
                   </a>
@@ -148,7 +148,7 @@ export default function TeamClient() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${member.name} GitHub`}
-                    className="p-1.5 rounded-lg bg-white/5 hover:bg-accent/20 hover:text-accent text-gray-400 transition-colors"
+                    className="p-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 hover:text-black text-gray-600 transition-colors shadow-sm"
                   >
                     <Github className="w-3.5 h-3.5" />
                   </a>
@@ -159,7 +159,7 @@ export default function TeamClient() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${member.name} Instagram`}
-                    className="p-1.5 rounded-lg bg-white/5 hover:bg-accent/20 hover:text-accent text-gray-400 transition-colors"
+                    className="p-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 hover:text-black text-gray-600 transition-colors shadow-sm"
                   >
                     <Instagram className="w-3.5 h-3.5" />
                   </a>
@@ -170,7 +170,7 @@ export default function TeamClient() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${member.name} Twitter`}
-                    className="p-1.5 rounded-lg bg-white/5 hover:bg-accent/20 hover:text-accent text-gray-400 transition-colors"
+                    className="p-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 hover:text-black text-gray-600 transition-colors shadow-sm"
                   >
                     <Twitter className="w-3.5 h-3.5" />
                   </a>
@@ -179,7 +179,7 @@ export default function TeamClient() {
                   <a
                     href={`mailto:${member.socials.email}`}
                     aria-label={`${member.name} Email`}
-                    className="p-1.5 rounded-lg bg-white/5 hover:bg-accent/20 hover:text-accent text-gray-400 transition-colors"
+                    className="p-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 hover:text-black text-gray-600 transition-colors shadow-sm"
                   >
                     <Mail className="w-3.5 h-3.5" />
                   </a>

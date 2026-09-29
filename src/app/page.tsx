@@ -3,6 +3,7 @@ import StatsCounters from "@/components/StatsCounters";
 import WhatIsExpo from "@/components/WhatIsExpo";
 import PrizeHighlights from "@/components/PrizeHighlights";
 import SponsorsMarquee from "@/components/SponsorsMarquee";
+import FaqSection from "@/components/FaqSection";
 
 export default function HomePage() {
   return (
@@ -10,7 +11,7 @@ export default function HomePage() {
       {/* Hero Section with Live Countdown */}
       <Hero />
 
-      {/* Animated Numerical Counters */}
+      {/* Numerical Counters & Key Metrics */}
       <StatsCounters />
 
       {/* 9 Live Zones Section */}
@@ -19,8 +20,11 @@ export default function HomePage() {
       {/* Prize Pool & Trophy Highlights */}
       <PrizeHighlights />
 
-      {/* Sponsors Infinite Marquee & Brochure Download Banner */}
+      {/* Sponsors & Brand Connect Zone */}
       <SponsorsMarquee />
+
+      {/* Frequently Asked Questions */}
+      <FaqSection />
     </div>
   );
 }
