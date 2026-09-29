@@ -2,20 +2,23 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Image as ImageIcon, Video, Sparkles } from "lucide-react";
+import { Play, Lock, Image as ImageIcon, Video, Sparkles } from "lucide-react";
 import { GALLERY_ITEMS } from "@/data/gallery";
 import Lightbox from "@/components/Lightbox";
 
+type GalleryPhase = "phase-1" | "phase-2" | "phase-3";
 type MediaTypeFilter = "all" | "image" | "video";
 
 export default function GalleryPage() {
+  const [activePhase, setActivePhase] = useState<GalleryPhase>("phase-2");
   const [mediaType, setMediaType] = useState<MediaTypeFilter>("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  // Filter items by media type
+  // Filter items by phase and media type only (no other sub-filters)
   const currentItems = GALLERY_ITEMS.filter((item) => {
-    if (mediaType === "all") return true;
-    return item.type === mediaType;
+    const matchesPhase = item.phase === activePhase;
+    const matchesType = mediaType === "all" || item.type === mediaType;
+    return matchesPhase && matchesType;
   });
 
   return (
@@ -50,45 +53,83 @@ export default function GalleryPage() {
         </motion.p>
       </div>
 
-      {/* 3 Main Tabs: All Media, Photos, Videos */}
-      <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
+      {/* Phase Tabs: Phase 1, Phase 2, Phase 3 */}
+      <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
         <button
-          onClick={() => setMediaType("all")}
+          onClick={() => setActivePhase("phase-1")}
           className={`px-6 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all ${
-            mediaType === "all"
+            activePhase === "phase-1"
               ? "bg-accent text-background shadow-[0_0_20px_rgba(0,229,255,0.4)] scale-105"
               : "bg-surface/80 border border-white/10 text-gray-400 hover:text-white"
           }`}
         >
-          All Media ({GALLERY_ITEMS.length})
+          Phase 1 (Inaugural Edition)
+        </button>
+
+        <button
+          onClick={() => setActivePhase("phase-2")}
+          className={`px-6 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all ${
+            activePhase === "phase-2"
+              ? "bg-accent text-background shadow-[0_0_20px_rgba(0,229,255,0.4)] scale-105"
+              : "bg-surface/80 border border-white/10 text-gray-400 hover:text-white"
+          }`}
+        >
+          Phase 2 (Growth & Scale)
+        </button>
+
+        {/* Locked Phase 3 Tab */}
+        <button
+          disabled
+          className="px-6 py-3 rounded-2xl text-xs sm:text-sm font-semibold bg-white/[0.03] border border-white/5 text-gray-500 cursor-not-allowed flex items-center gap-2"
+        >
+          <Lock className="w-3.5 h-3.5 text-neon-gold" />
+          <span>Phase 3 — Coming Soon (23-24 Oct 2026)</span>
+        </button>
+      </div>
+
+      {/* Only 3 Filter Tabs: All Media, Photos, Videos */}
+      <div className="flex items-center justify-center gap-2 mb-10">
+        <button
+          onClick={() => setMediaType("all")}
+          className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors ${
+            mediaType === "all"
+              ? "bg-white/20 text-white border border-white/30"
+              : "bg-white/5 text-gray-400 hover:text-white"
+          }`}
+        >
+          All Media ({GALLERY_ITEMS.filter((i) => i.phase === activePhase).length})
         </button>
 
         <button
           onClick={() => setMediaType("image")}
-          className={`px-6 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
+          className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors flex items-center gap-1.5 ${
             mediaType === "image"
-              ? "bg-accent text-background shadow-[0_0_20px_rgba(0,229,255,0.4)] scale-105"
-              : "bg-surface/80 border border-white/10 text-gray-400 hover:text-white"
+              ? "bg-white/20 text-white border border-white/30"
+              : "bg-white/5 text-gray-400 hover:text-white"
           }`}
         >
-          <ImageIcon className="w-4 h-4" />
-          <span>Photos ({GALLERY_ITEMS.filter((i) => i.type === "image").length})</span>
+          <ImageIcon className="w-3.5 h-3.5" />
+          <span>
+            Photos ({GALLERY_ITEMS.filter((i) => i.phase === activePhase && i.type === "image").length})
+          </span>
         </button>
 
         <button
           onClick={() => setMediaType("video")}
-          className={`px-6 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
+          className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors flex items-center gap-1.5 ${
             mediaType === "video"
-              ? "bg-accent text-background shadow-[0_0_20px_rgba(0,229,255,0.4)] scale-105"
-              : "bg-surface/80 border border-white/10 text-gray-400 hover:text-white"
+              ? "bg-white/20 text-white border border-white/30"
+              : "bg-white/5 text-gray-400 hover:text-white"
           }`}
         >
-          <Video className="w-4 h-4" />
-          <span>Videos ({GALLERY_ITEMS.filter((i) => i.type === "video").length})</span>
+          <Video className="w-3.5 h-3.5" />
+          <span>
+            Videos ({GALLERY_ITEMS.filter((i) => i.phase === activePhase && i.type === "video").length})
+          </span>
         </button>
       </div>
 
-      {/* Masonry / Grid Display */}
+      {/* Masonry / Grid Display: Pure Media only (no titles or text cards) */}
       <motion.div
         layout
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
