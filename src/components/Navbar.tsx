@@ -45,24 +45,17 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Logo & College Badge */}
+            {/* Brand Title (No image logo in navbar) */}
             <Link
               href="/"
-              className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg p-1"
+              className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg p-1"
             >
-              <div className="relative h-10 w-24 sm:w-28 flex items-center justify-center bg-white/5 rounded-md p-1 border border-white/10 group-hover:border-accent/40 transition-colors">
-                <Image
-                  src={FEST_CONFIG.institution.logoPath}
-                  alt={FEST_CONFIG.institution.name}
-                  width={112}
-                  height={40}
-                  className="object-contain max-h-8"
-                  priority
-                />
+              <div className="w-9 h-9 rounded-xl bg-accent/10 border border-accent/30 flex items-center justify-center text-accent group-hover:scale-105 group-hover:border-accent group-hover:bg-accent/20 transition-all shadow-[0_0_15px_rgba(0,229,255,0.2)]">
+                <Sparkles className="w-4 h-4 text-accent" />
               </div>
 
               <div className="flex flex-col">
-                <span className="font-display font-extrabold text-base sm:text-lg tracking-wider text-white group-hover:text-accent transition-colors flex items-center gap-1.5">
+                <span className="font-display font-black text-base sm:text-lg tracking-wider text-white group-hover:text-accent transition-colors flex items-center gap-1.5">
                   SKILL EXPO
                   <span className="text-xs font-mono font-bold px-1.5 py-0.5 rounded bg-accent/15 text-accent border border-accent/30">
                     3.0

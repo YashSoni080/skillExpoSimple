@@ -19,35 +19,42 @@ export default function Hero() {
       <div className="absolute bottom-10 right-1/4 w-[350px] h-[350px] bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
-        {/* Presented By Pill */}
+        {/* Sobhasaria Presents Line */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-surface/80 border border-accent/30 backdrop-blur-md mb-6 shadow-[0_0_15px_rgba(0,229,255,0.15)]"
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="flex items-center gap-3 mb-3"
         >
-          <div className="relative h-6 w-16 sm:w-20">
-            <Image
-              src={FEST_CONFIG.institution.logoPath}
-              alt={FEST_CONFIG.institution.name}
-              fill
-              className="object-contain"
-            />
-          </div>
-          <span className="h-3 w-[1px] bg-white/20" />
-          <span className="text-xs sm:text-sm font-medium text-gray-300">
-            Presents
+          <span className="h-[1px] w-6 sm:w-12 bg-gradient-to-r from-transparent to-accent/60" />
+          <span className="text-xs sm:text-sm font-mono uppercase tracking-[0.25em] text-accent font-bold">
+            Sobhasaria Presents
           </span>
-          <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-accent/20 text-accent">
-            Phase 3.0
-          </span>
+          <span className="h-[1px] w-6 sm:w-12 bg-gradient-to-l from-transparent to-accent/60" />
         </motion.div>
 
-        {/* Main Title */}
+        {/* Large Sobhasaria Logo (No background, increased size) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+          className="relative mb-6 flex items-center justify-center"
+        >
+          <Image
+            src="/images/sobhasaria-logo-transparent.png"
+            alt="Sobhasaria Group of Institutions"
+            width={580}
+            height={130}
+            priority
+            className="w-72 sm:w-96 md:w-[480px] lg:w-[540px] max-w-full h-auto object-contain filter drop-shadow-[0_0_25px_rgba(0,229,255,0.25)] brightness-110"
+          />
+        </motion.div>
+
+        {/* Below Logo: SKILL EXPO PHASE 3.0 */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
           className="flex flex-col items-center"
         >
           <h1 className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight uppercase text-white mb-2">
