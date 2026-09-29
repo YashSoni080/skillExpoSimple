@@ -5,7 +5,43 @@
  * All editable constants, links, registration forms, and countdown targets live here.
  */
 
-export const FEST_CONFIG = {
+import { StatItem } from "@/types";
+
+export const FEST_CONFIG: {
+  name: string;
+  shortName: string;
+  edition: string;
+  tagline: string;
+  subtitle: string;
+  institution: {
+    name: string;
+    shortName: string;
+    city: string;
+    state: string;
+    established: number;
+    address: string;
+    googleMapsUrl: string;
+    logoPath: string;
+  };
+  festDates: {
+    start: string;
+    end: string;
+    display: string;
+    daysCount: number;
+    timings: string;
+  };
+  countdownTarget: string;
+  countdownLabel: string;
+  brochurePath: string;
+  stats: StatItem[];
+  contact: {
+    email: string;
+    phone: string;
+    altPhone: string;
+    venue: string;
+  };
+  socials: Record<string, string>;
+} = {
   name: "Skill Expo Phase 3.0",
   shortName: "Skill Expo 3.0",
   edition: "Phase 3.0",
@@ -28,15 +64,9 @@ export const FEST_CONFIG = {
     daysCount: 2,
     timings: "9:00 AM – 3:00 PM Daily",
   },
-  /**
-   * Live countdown target date
-   * Specified in prompt as October 15, 2026 (Registration & Slot Closing Deadline)
-   */
   countdownTarget: "2026-10-15T23:59:59+05:30",
   countdownLabel: "Registration Closes In",
-
   brochurePath: "/brochure.pdf",
-
   stats: [
     { value: 9, suffix: "+", label: "Live Interactive Zones", description: "From Esports to AI & Startups" },
     { value: 30, suffix: "+", label: "Competitions & Showcases", description: "Across Tech, Art, Science & Media" },

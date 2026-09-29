@@ -69,8 +69,8 @@ export default function StatsCounters() {
                 {stat.value !== undefined ? (
                   <Counter
                     value={stat.value}
-                    prefix={stat.prefix}
-                    suffix={stat.suffix}
+                    prefix={stat.prefix || ""}
+                    suffix={stat.suffix || ""}
                   />
                 ) : (
                   <span className="font-display font-black text-2xl sm:text-3xl text-white text-center leading-tight">

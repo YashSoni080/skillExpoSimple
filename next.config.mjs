@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  optimizeFonts: false,
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
